@@ -1,0 +1,66 @@
+name: getx_mvvm_architecture
+description: "A new Flutter project."
+
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.6.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+  get: ^4.6.6
+  shared_preferences: ^2.5.1
+  flutter_launcher_icons: ^0.14.4
+  firebase_core: ^4.1.1
+  firebase_analytics: ^12.0.2
+  firebase_crashlytics: ^5.0.2
+  package_info_plus: ^8.3.0
+  flutter_svg: ^2.0.17
+  flutter_flavorizr: ^2.4.1
+  http: ^1.5.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^5.0.0     
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/locales/
+    - assets/svg/
+    - assets/images/
+
+flavorizr:
+  ide: "vscode"
+  flavors:
+    dev:
+      app:
+        name: "Delivery Dev"
+      android:
+        applicationId: "com.penh.delivery.dev"
+      ios:
+        bundleId: "com.penh.delivery.dev" 
+
+    staging:
+      app:
+        name: "Delivery Staging"
+      android:
+        applicationId: "com.penh.delivery.staging"
+      ios:
+        bundleId: "com.penh.delivery.staging"
+        
+    prod:
+      app:
+        name: "Delivery Prod"
+      android:
+        applicationId: "com.penh.delivery"
+      ios:
+        bundleId: "com.penh.delivery"

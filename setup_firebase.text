@@ -1,0 +1,7 @@
+  flutterfire configure \
+    --project=penh-delivery \
+    --platforms=android,ios,web,macos,windows \
+    --android-package-name=com.penh.delivery \
+    --ios-bundle-id=com.penh.delivery \
+    --out=lib/firebase_options.dart \
+    --yes
