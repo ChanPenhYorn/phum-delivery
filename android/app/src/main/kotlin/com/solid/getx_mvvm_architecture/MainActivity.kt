@@ -1,4 +1,4 @@
-package com.solid.getx_mvvm_architecture
+package com.solid.phum_delivery
 
 import io.flutter.embedding.android.FlutterActivity
 

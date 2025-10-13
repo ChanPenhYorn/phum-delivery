@@ -1,8 +1,8 @@
 // lib/views/auth/login_page.dart
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:getx_mvvm_architecture/controllers/auth_controller.dart';
-import 'package:getx_mvvm_architecture/core/utils/app_logger.dart';
+import 'package:phum_delivery/controllers/auth_controller.dart';
+import 'package:phum_delivery/core/utils/app_logger.dart';
 
 class LoginScreen extends StatelessWidget {
   final emailController = TextEditingController();

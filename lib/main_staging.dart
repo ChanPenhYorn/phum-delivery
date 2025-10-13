@@ -4,9 +4,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:getx_mvvm_architecture/app.dart';
-import 'package:getx_mvvm_architecture/core/utils/app_logger.dart';
-import 'package:getx_mvvm_architecture/core/utils/app_translation.dart';
+import 'package:phum_delivery/app.dart';
+import 'package:phum_delivery/core/utils/app_logger.dart';
+import 'package:phum_delivery/core/utils/app_translation.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
 import 'controllers/theme_controller.dart';

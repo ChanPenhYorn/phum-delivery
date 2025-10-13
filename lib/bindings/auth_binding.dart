@@ -1,11 +1,11 @@
 import 'package:get/get.dart';
 
-import 'package:getx_mvvm_architecture/controllers/auth_controller.dart';
-import 'package:getx_mvvm_architecture/core/services/api/api_service.dart';
-import 'package:getx_mvvm_architecture/domain/usecases/auth_usecase.dart';
-import 'package:getx_mvvm_architecture/data/datasources/auth_remote_ds.dart';
-import 'package:getx_mvvm_architecture/data/repositories/auth_repo.dart';
-import 'package:getx_mvvm_architecture/flavors.dart';
+import 'package:phum_delivery/controllers/auth_controller.dart';
+import 'package:phum_delivery/core/services/api/api_service.dart';
+import 'package:phum_delivery/domain/usecases/auth_usecase.dart';
+import 'package:phum_delivery/data/datasources/auth_remote_ds.dart';
+import 'package:phum_delivery/data/repositories/auth_repo.dart';
+import 'package:phum_delivery/flavors.dart';
 
 class AuthBinding extends Bindings {
   @override

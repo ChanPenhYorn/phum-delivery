@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "getx_mvvm_architecture" "\0"
+            VALUE "FileDescription", "phum_delivery" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "getx_mvvm_architecture" "\0"
+            VALUE "InternalName", "phum_delivery" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2025 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "getx_mvvm_architecture.exe" "\0"
-            VALUE "ProductName", "getx_mvvm_architecture" "\0"
+            VALUE "OriginalFilename", "phum_delivery.exe" "\0"
+            VALUE "ProductName", "phum_delivery" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

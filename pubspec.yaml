@@ -1,5 +1,5 @@
-name: getx_mvvm_architecture
-description: "A new Flutter project."
+name: phum_delivery
+description: "Phum Delivery"
 
 publish_to: "none"
 
@@ -23,6 +23,7 @@ dependencies:
   flutter_svg: ^2.0.17
   flutter_flavorizr: ^2.4.1
   http: ^1.5.0
+  hexcolor: ^3.0.1
 
 dev_dependencies:
   flutter_test:
@@ -37,6 +38,7 @@ flutter:
     - assets/locales/
     - assets/svg/
     - assets/images/
+    - assets/gif/
 
 flavorizr:
   ide: "vscode"

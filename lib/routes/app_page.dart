@@ -1,10 +1,10 @@
 import 'package:get/get_navigation/src/routes/get_route.dart';
-import 'package:getx_mvvm_architecture/bindings/auth_binding.dart';
-import 'package:getx_mvvm_architecture/bindings/splash_binding.dart';
-import 'package:getx_mvvm_architecture/routes/app_route.dart';
-import 'package:getx_mvvm_architecture/views/auth/login_screen.dart';
-import 'package:getx_mvvm_architecture/views/home/home_screen.dart';
-import 'package:getx_mvvm_architecture/views/splash/splash_screen.dart';
+import 'package:phum_delivery/bindings/auth_binding.dart';
+import 'package:phum_delivery/bindings/splash_binding.dart';
+import 'package:phum_delivery/routes/app_route.dart';
+import 'package:phum_delivery/views/auth/login_screen.dart';
+import 'package:phum_delivery/views/home/home_screen.dart';
+import 'package:phum_delivery/views/splash/splash_screen.dart';
 
 class AppPages {
   static List<GetPage> routes = [

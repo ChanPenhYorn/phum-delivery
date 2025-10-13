@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:getx_mvvm_architecture/routes/app_route.dart';
+import 'package:phum_delivery/routes/app_route.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
 class SplashController extends GetxController {

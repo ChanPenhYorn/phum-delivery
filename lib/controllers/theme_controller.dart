@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:getx_mvvm_architecture/core/utils/app_theme.dart';
+import 'package:phum_delivery/core/utils/app_theme.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 

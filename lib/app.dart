@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:getx_mvvm_architecture/controllers/theme_controller.dart';
-import 'package:getx_mvvm_architecture/core/utils/app_translation.dart';
-import 'package:getx_mvvm_architecture/routes/app_page.dart';
-import 'package:getx_mvvm_architecture/routes/app_route.dart';
+import 'package:phum_delivery/controllers/theme_controller.dart';
+import 'package:phum_delivery/core/utils/app_translation.dart';
+import 'package:phum_delivery/routes/app_page.dart';
+import 'package:phum_delivery/routes/app_route.dart';
 
 class App extends StatelessWidget {
   final AppTranslation translations;

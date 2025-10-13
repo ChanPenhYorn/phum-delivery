@@ -1,8 +1,8 @@
 // lib/controllers/auth_controller.dart
 import 'package:get/get.dart';
-import 'package:getx_mvvm_architecture/core/utils/app_logger.dart';
-import 'package:getx_mvvm_architecture/domain/usecases/auth_usecase.dart';
-import 'package:getx_mvvm_architecture/domain/entities/user_entity.dart';
+import 'package:phum_delivery/core/utils/app_logger.dart';
+import 'package:phum_delivery/domain/usecases/auth_usecase.dart';
+import 'package:phum_delivery/domain/entities/user_entity.dart';
 
 class AuthController extends GetxController {
   final AuthUseCase loginUseCase;
