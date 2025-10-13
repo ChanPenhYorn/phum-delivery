@@ -1,7 +1,7 @@
   flutterfire configure \
-    --project=penh-delivery \
+    --project=penh-delivery-staging \
     --platforms=android,ios,web,macos,windows \
-    --android-package-name=com.penh.delivery \
-    --ios-bundle-id=com.penh.delivery \
-    --out=lib/firebase_options.dart \
+    --android-package-name=com.penh.delivery.staging \
+    --ios-bundle-id=com.penh.delivery.staging \
+    --out=lib/firebase_options_staging.dart \
     --yes

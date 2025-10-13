@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "444884163011",
-    "project_id": "penh-delivery",
-    "storage_bucket": "penh-delivery.firebasestorage.app"
+    "project_number": "537539882873",
+    "project_id": "penh-delivery-staging",
+    "storage_bucket": "penh-delivery-staging.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:444884163011:android:255b5f7f136ac42068c576",
+        "mobilesdk_app_id": "1:537539882873:android:e74ecc89829512a7aec9a8",
         "android_client_info": {
-          "package_name": "com.penh.delivery"
+          "package_name": "com.penh.delivery.staging"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCd0DPSH10qexZQKmmcHzPuivgK_jSTuKI"
+          "current_key": "AIzaSyDZGJH7XpJBdFWHFflfM2bTa6zGbja_6SY"
         }
       ],
       "services": {

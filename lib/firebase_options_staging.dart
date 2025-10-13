@@ -41,48 +41,49 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyDPL7O23fDf6A3JkrZ2LsPTH9U40mQeylA',
-    appId: '1:894248668835:web:ea6f871490f729a11e7916',
-    messagingSenderId: '894248668835',
-    projectId: 'mvvm-solid-principle-staging',
-    authDomain: 'mvvm-solid-principle-staging.firebaseapp.com',
-    storageBucket: 'mvvm-solid-principle-staging.firebasestorage.app',
-    measurementId: 'G-NYKPDPLXB6',
+    apiKey: 'AIzaSyBMZWAaES2WAyEehkhjhS6A4kMdmIBfJKA',
+    appId: '1:537539882873:web:fd3dbcfda891bab1aec9a8',
+    messagingSenderId: '537539882873',
+    projectId: 'penh-delivery-staging',
+    authDomain: 'penh-delivery-staging.firebaseapp.com',
+    storageBucket: 'penh-delivery-staging.firebasestorage.app',
+    measurementId: 'G-9E10C667EB',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCs5b9jFg8F1dvtNkEmbcvqjZY9Lmu2ulc',
-    appId: '1:894248668835:android:e9742da01a3b60711e7916',
-    messagingSenderId: '894248668835',
-    projectId: 'mvvm-solid-principle-staging',
-    storageBucket: 'mvvm-solid-principle-staging.firebasestorage.app',
+    apiKey: 'AIzaSyDZGJH7XpJBdFWHFflfM2bTa6zGbja_6SY',
+    appId: '1:537539882873:android:e74ecc89829512a7aec9a8',
+    messagingSenderId: '537539882873',
+    projectId: 'penh-delivery-staging',
+    storageBucket: 'penh-delivery-staging.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCKQIvTFyrXLGXH_VdqKOxsAbxj56s83Z4',
-    appId: '1:894248668835:ios:b21fdc194c39d6dc1e7916',
-    messagingSenderId: '894248668835',
-    projectId: 'mvvm-solid-principle-staging',
-    storageBucket: 'mvvm-solid-principle-staging.firebasestorage.app',
-    iosBundleId: 'com.solid.principle.staging',
+    apiKey: 'AIzaSyDS3v25G1FnKq4avTcGLjaOc5nW0QwC1OQ',
+    appId: '1:537539882873:ios:922c35d2f9a1a01baec9a8',
+    messagingSenderId: '537539882873',
+    projectId: 'penh-delivery-staging',
+    storageBucket: 'penh-delivery-staging.firebasestorage.app',
+    iosBundleId: 'com.penh.delivery.staging',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyCKQIvTFyrXLGXH_VdqKOxsAbxj56s83Z4',
-    appId: '1:894248668835:ios:64622205d2057f681e7916',
-    messagingSenderId: '894248668835',
-    projectId: 'mvvm-solid-principle-staging',
-    storageBucket: 'mvvm-solid-principle-staging.firebasestorage.app',
+    apiKey: 'AIzaSyDS3v25G1FnKq4avTcGLjaOc5nW0QwC1OQ',
+    appId: '1:537539882873:ios:a6d0a382cb213e1eaec9a8',
+    messagingSenderId: '537539882873',
+    projectId: 'penh-delivery-staging',
+    storageBucket: 'penh-delivery-staging.firebasestorage.app',
     iosBundleId: 'com.example.todoKh',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyDPL7O23fDf6A3JkrZ2LsPTH9U40mQeylA',
-    appId: '1:894248668835:web:10f92e523a755e0e1e7916',
-    messagingSenderId: '894248668835',
-    projectId: 'mvvm-solid-principle-staging',
-    authDomain: 'mvvm-solid-principle-staging.firebaseapp.com',
-    storageBucket: 'mvvm-solid-principle-staging.firebasestorage.app',
-    measurementId: 'G-GKXX4B96V2',
+    apiKey: 'AIzaSyBMZWAaES2WAyEehkhjhS6A4kMdmIBfJKA',
+    appId: '1:537539882873:web:18fafd842b4586aaaec9a8',
+    messagingSenderId: '537539882873',
+    projectId: 'penh-delivery-staging',
+    authDomain: 'penh-delivery-staging.firebaseapp.com',
+    storageBucket: 'penh-delivery-staging.firebasestorage.app',
+    measurementId: 'G-98XT36JJ7G',
   );
+
 }

@@ -3,17 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>API_KEY</key>
-	<string>AIzaSyCzaizHoWfu4ayagRgkm6Nzr8acVBr7p3w</string>
+	<string>AIzaSyDS3v25G1FnKq4avTcGLjaOc5nW0QwC1OQ</string>
 	<key>GCM_SENDER_ID</key>
-	<string>444884163011</string>
+	<string>537539882873</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.example.todoKh</string>
 	<key>PROJECT_ID</key>
-	<string>penh-delivery</string>
+	<string>penh-delivery-staging</string>
 	<key>STORAGE_BUCKET</key>
-	<string>penh-delivery.firebasestorage.app</string>
+	<string>penh-delivery-staging.firebasestorage.app</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -25,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:444884163011:ios:a8990876ff02e67168c576</string>
+	<string>1:537539882873:ios:a6d0a382cb213e1eaec9a8</string>
 </dict>
 </plist>
