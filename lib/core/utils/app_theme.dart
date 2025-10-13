@@ -9,11 +9,9 @@ class AppThemes {
     scaffoldBackgroundColor: AppColors.backgroundLight,
     textTheme: _getTextTheme(false),
     appBarTheme: AppBarTheme(
-      backgroundColor: AppColors.primaryLight,
+      backgroundColor: AppColors.white,
       titleTextStyle: TextStyle(
-          color: AppColors.onPrimaryLight,
-          fontSize: 20,
-          fontWeight: FontWeight.bold),
+          color: AppColors.black, fontSize: 20, fontWeight: FontWeight.bold),
     ),
   );
 
@@ -26,9 +24,7 @@ class AppThemes {
     appBarTheme: AppBarTheme(
       backgroundColor: AppColors.primaryDark,
       titleTextStyle: TextStyle(
-          color: AppColors.onPrimaryDark,
-          fontSize: 20,
-          fontWeight: FontWeight.bold),
+          color: AppColors.black, fontSize: 20, fontWeight: FontWeight.bold),
     ),
   );
 

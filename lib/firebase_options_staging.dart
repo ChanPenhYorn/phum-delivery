@@ -14,7 +14,7 @@ import 'package:flutter/foundation.dart'
 ///   options: DefaultFirebaseOptions.currentPlatform,
 /// );
 /// ```
-class DefaultFirebaseOptions {
+class DefaultFirebaseOptionsStaging {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
       return web;
@@ -42,12 +42,12 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions web = FirebaseOptions(
     apiKey: 'AIzaSyBMZWAaES2WAyEehkhjhS6A4kMdmIBfJKA',
-    appId: '1:537539882873:web:fd3dbcfda891bab1aec9a8',
+    appId: '1:537539882873:web:18fafd842b4586aaaec9a8',
     messagingSenderId: '537539882873',
     projectId: 'penh-delivery-staging',
     authDomain: 'penh-delivery-staging.firebaseapp.com',
     storageBucket: 'penh-delivery-staging.firebasestorage.app',
-    measurementId: 'G-9E10C667EB',
+    measurementId: 'G-98XT36JJ7G',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
@@ -78,12 +78,12 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions windows = FirebaseOptions(
     apiKey: 'AIzaSyBMZWAaES2WAyEehkhjhS6A4kMdmIBfJKA',
-    appId: '1:537539882873:web:18fafd842b4586aaaec9a8',
+    appId: '1:537539882873:web:6163b1bc2055c7d2aec9a8',
     messagingSenderId: '537539882873',
     projectId: 'penh-delivery-staging',
     authDomain: 'penh-delivery-staging.firebaseapp.com',
     storageBucket: 'penh-delivery-staging.firebasestorage.app',
-    measurementId: 'G-98XT36JJ7G',
+    measurementId: 'G-DB84R3ZKQK',
   );
 
 }

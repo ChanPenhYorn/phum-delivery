@@ -8,13 +8,13 @@ import 'package:flutter/foundation.dart'
 ///
 /// Example:
 /// ```dart
-/// import 'firebase_options.dart';
+/// import 'firebase_options_prod.dart';
 /// // ...
 /// await Firebase.initializeApp(
 ///   options: DefaultFirebaseOptions.currentPlatform,
 /// );
 /// ```
-class DefaultFirebaseOptionsProd {
+class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
       return web;
@@ -42,16 +42,17 @@ class DefaultFirebaseOptionsProd {
 
   static const FirebaseOptions web = FirebaseOptions(
     apiKey: 'AIzaSyC_6hNVUM7gcTuqUBkqQHA6QLWCmFocdOo',
-    appId: '1:444884163011:web:2c2b6ee35e16aeec68c576',
+    appId: '1:444884163011:web:05b31deef9160ef968c576',
     messagingSenderId: '444884163011',
     projectId: 'penh-delivery',
     authDomain: 'penh-delivery.firebaseapp.com',
     storageBucket: 'penh-delivery.firebasestorage.app',
+    measurementId: 'G-VGQE07WV7T',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyCd0DPSH10qexZQKmmcHzPuivgK_jSTuKI',
-    appId: '1:444884163011:android:255b5f7f136ac42068c576',
+    appId: '1:444884163011:android:59632312f54559f268c576',
     messagingSenderId: '444884163011',
     projectId: 'penh-delivery',
     storageBucket: 'penh-delivery.firebasestorage.app',
@@ -59,11 +60,11 @@ class DefaultFirebaseOptionsProd {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyCzaizHoWfu4ayagRgkm6Nzr8acVBr7p3w',
-    appId: '1:444884163011:ios:c337525cf24e7f6e68c576',
+    appId: '1:444884163011:ios:74e5db3368f1b1af68c576',
     messagingSenderId: '444884163011',
     projectId: 'penh-delivery',
     storageBucket: 'penh-delivery.firebasestorage.app',
-    iosBundleId: 'com.penh.delivery',
+    iosBundleId: 'com.penh.delivery.prod',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
@@ -77,10 +78,11 @@ class DefaultFirebaseOptionsProd {
 
   static const FirebaseOptions windows = FirebaseOptions(
     apiKey: 'AIzaSyC_6hNVUM7gcTuqUBkqQHA6QLWCmFocdOo',
-    appId: '1:444884163011:web:05b31deef9160ef968c576',
+    appId: '1:444884163011:web:13e495dc317045a968c576',
     messagingSenderId: '444884163011',
     projectId: 'penh-delivery',
     authDomain: 'penh-delivery.firebaseapp.com',
     storageBucket: 'penh-delivery.firebasestorage.app',
+    measurementId: 'G-XY71EE15XZ',
   );
 }

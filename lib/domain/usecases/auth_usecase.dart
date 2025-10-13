@@ -17,4 +17,25 @@ class AuthUseCase implements AuthRepository {
     // return throw UnimplementedError();
     return repository.login(email, password);
   }
+
+  @override
+  Future<UserEntity> forgetPassword(String email) {
+    AppLogger.log("usecase forgetPassword run");
+    // return throw UnimplementedError();
+    return repository.forgetPassword(email);
+  }
+
+  @override
+  Future<UserEntity> verifyOtp(String otp) {
+    AppLogger.log("usecase verifyOtp run");
+    // return throw UnimplementedError();
+    return repository.verifyOtp(otp);
+  }
+
+  @override
+  Future<UserEntity> createNewPassword(String userId, String password) {
+    AppLogger.log("usecase createNewPassword run");
+    // return throw UnimplementedError();
+    return repository.createNewPassword(userId, password);
+  }
 }

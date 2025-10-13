@@ -3,17 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>API_KEY</key>
-	<string>AIzaSyDS3v25G1FnKq4avTcGLjaOc5nW0QwC1OQ</string>
+	<string>AIzaSyCzaizHoWfu4ayagRgkm6Nzr8acVBr7p3w</string>
 	<key>GCM_SENDER_ID</key>
-	<string>537539882873</string>
+	<string>444884163011</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.penh.delivery.staging</string>
+	<string>com.penh.delivery.prod</string>
 	<key>PROJECT_ID</key>
-	<string>penh-delivery-staging</string>
+	<string>penh-delivery</string>
 	<key>STORAGE_BUCKET</key>
-	<string>penh-delivery-staging.firebasestorage.app</string>
+	<string>penh-delivery.firebasestorage.app</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -25,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:537539882873:ios:922c35d2f9a1a01baec9a8</string>
+	<string>1:444884163011:ios:74e5db3368f1b1af68c576</string>
 </dict>
 </plist>

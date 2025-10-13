@@ -5,13 +5,14 @@ import 'package:phum_delivery/core/utils/app_colors.dart';
 import 'package:phum_delivery/core/utils/app_font.dart';
 import 'package:phum_delivery/core/utils/app_logger.dart';
 import 'package:phum_delivery/core/utils/enum/app_textformfield_enum.dart';
+import 'package:phum_delivery/routes/app_route.dart';
 import 'package:phum_delivery/widgets/app_button_widget.dart';
 
 import '../../widgets/app_textformfield_widget.dart';
 
 class LoginScreen extends StatelessWidget {
-  final emailController = TextEditingController();
-  final passwordController = TextEditingController();
+  final emailController = TextEditingController(text: "example@gmail.com");
+  final passwordController = TextEditingController(text: "123456");
 
   final _formKey = GlobalKey<FormState>();
 
@@ -78,12 +79,14 @@ class LoginScreen extends StatelessWidget {
                       passwordController.text,
                     );
                   }
+
                   AppLogger.log("Login button pressed");
                 },
               ),
               Center(
                 child: TextButton(
                   onPressed: () {
+                    Get.toNamed(AppRoutes.forgetPassword);
                     AppLogger.log("Forget the Password button pressed");
                   },
                   child: Text("Forget the Password?",

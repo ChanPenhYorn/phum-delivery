@@ -14,7 +14,7 @@ import 'package:flutter/foundation.dart'
 ///   options: DefaultFirebaseOptions.currentPlatform,
 /// );
 /// ```
-class DefaultFirebaseOptions {
+class DefaultFirebaseOptionsDev {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
       return web;
@@ -78,12 +78,11 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions windows = FirebaseOptions(
     apiKey: 'AIzaSyApGGNE4CDGus9rl81E4YvaCYqV0fFsBos',
-    appId: '1:589539129257:web:f98f75bdf1f25155fb76b8',
+    appId: '1:589539129257:web:7852885cb0f012f7fb76b8',
     messagingSenderId: '589539129257',
     projectId: 'penh-delivery-dev',
     authDomain: 'penh-delivery-dev.firebaseapp.com',
     storageBucket: 'penh-delivery-dev.firebasestorage.app',
-    measurementId: 'G-EFTMDFPC4Q',
+    measurementId: 'G-X4TJLS30KX',
   );
-
 }

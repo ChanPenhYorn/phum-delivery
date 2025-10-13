@@ -3,6 +3,9 @@ import 'package:phum_delivery/bindings/auth_binding.dart';
 import 'package:phum_delivery/bindings/splash_binding.dart';
 import 'package:phum_delivery/routes/app_route.dart';
 import 'package:phum_delivery/views/auth/login_screen.dart';
+import 'package:phum_delivery/views/auth/reset-password/create_new_password.dart';
+import 'package:phum_delivery/views/auth/reset-password/forget_password_screen.dart';
+import 'package:phum_delivery/views/auth/reset-password/otp_screen.dart';
 import 'package:phum_delivery/views/home/home_screen.dart';
 import 'package:phum_delivery/views/splash/splash_screen.dart';
 
@@ -19,6 +22,21 @@ class AppPages {
     GetPage(
       name: AppRoutes.login,
       page: () => LoginScreen(),
+      binding: AuthBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.forgetPassword,
+      page: () => ForgetPasswordScreen(),
+      binding: AuthBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.otp,
+      page: () => OtpScreen(),
+      binding: AuthBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.createNewPassword,
+      page: () => CreateNewPasswordScreen(),
       binding: AuthBinding(),
     ),
   ];
