@@ -6,6 +6,8 @@ class AppColors {
   static final Color primary = HexColor('#CA1043');
   static final Color secondary = HexColor('#0088FF');
   static const Color white = Colors.white;
+  static const Color black = Colors.black;
+  static final Color gray = HexColor('#F2F4F7');
 
   // Primary Colors
   static const Color primaryLight = Colors.blue;

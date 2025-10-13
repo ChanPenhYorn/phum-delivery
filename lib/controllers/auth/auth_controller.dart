@@ -1,4 +1,3 @@
-// lib/controllers/auth_controller.dart
 import 'package:get/get.dart';
 import 'package:phum_delivery/core/utils/app_logger.dart';
 import 'package:phum_delivery/domain/usecases/auth_usecase.dart';
@@ -8,11 +7,23 @@ class AuthController extends GetxController {
   final AuthUseCase loginUseCase;
   AuthController(this.loginUseCase);
 
-  // final AuthUseCase loginUseCase = AuthUseCase();
-  final AppLogger logger = AppLogger();
+  //! variables
 
   var isLoading = false.obs;
   var user = Rxn<UserEntity>();
+
+  RxBool isObscure = true.obs;
+  RxBool isShowClearIcon = false.obs;
+
+  //! methods
+
+  void toggleObscure() {
+    isObscure.value = !isObscure.value;
+  }
+
+  void setShowClearIcon(bool value) {
+    isShowClearIcon.value = value;
+  }
 
   Future<void> login(String email, String password) async {
     isLoading.value = true;

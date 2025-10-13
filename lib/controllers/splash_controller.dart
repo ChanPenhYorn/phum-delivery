@@ -18,7 +18,7 @@ class SplashController extends GetxController {
 
   // Method to navigate after a delay
   _navigateToHome() async {
-    await Future.delayed(const Duration(seconds: 3)); // 3 seconds delay
-    Get.offAllNamed(AppRoutes.home); // Navigate to the Home screen using GetX
+    await Future.delayed(const Duration(seconds: 2)); // 3 seconds delay
+    Get.offAllNamed(AppRoutes.login); // Navigate to the Home screen using GetX
   }
 }

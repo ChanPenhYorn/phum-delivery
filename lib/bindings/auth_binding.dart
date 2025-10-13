@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-import 'package:phum_delivery/controllers/auth_controller.dart';
+import 'package:phum_delivery/controllers/auth/auth_controller.dart';
 import 'package:phum_delivery/core/services/api/api_service.dart';
 import 'package:phum_delivery/domain/usecases/auth_usecase.dart';
 import 'package:phum_delivery/data/datasources/auth_remote_ds.dart';
