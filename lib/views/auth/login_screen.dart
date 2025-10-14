@@ -78,6 +78,7 @@ class LoginScreen extends StatelessWidget {
                       emailController.text,
                       passwordController.text,
                     );
+                    Get.toNamed(AppRoutes.home);
                   }
 
                   AppLogger.log("Login button pressed");

@@ -28,7 +28,8 @@ class AppTextformfieldWidget extends StatelessWidget {
       this.contentPadding,
       this.focusNode,
       this.fillColor,
-      this.maxLength});
+      this.maxLength,
+      this.borderRadius});
   final TextEditingController controller;
   final void Function(String)? onChanged;
   final String? hintText;
@@ -50,6 +51,8 @@ class AppTextformfieldWidget extends StatelessWidget {
   final FocusNode? focusNode;
   final Color? fillColor;
   final int? maxLength;
+  final BorderRadius? borderRadius;
+
   @override
   Widget build(BuildContext context) {
     List<TextInputFormatter>? inputFormatters =
@@ -90,19 +93,19 @@ class AppTextformfieldWidget extends StatelessWidget {
         hintStyle: const TextStyle(color: Colors.grey),
         border: OutlineInputBorder(
             borderSide: BorderSide.none,
-            borderRadius: BorderRadius.circular(10)),
+            borderRadius: borderRadius ?? BorderRadius.circular(10)),
         focusedBorder: OutlineInputBorder(
             borderSide: BorderSide.none,
-            borderRadius: BorderRadius.circular(10)),
+            borderRadius: borderRadius ?? BorderRadius.circular(10)),
         disabledBorder: OutlineInputBorder(
             borderSide: BorderSide.none,
-            borderRadius: BorderRadius.circular(10)),
+            borderRadius: borderRadius ?? BorderRadius.circular(10)),
         errorBorder: OutlineInputBorder(
             borderSide: BorderSide.none,
-            borderRadius: BorderRadius.circular(10)),
+            borderRadius: borderRadius ?? BorderRadius.circular(10)),
         enabledBorder: OutlineInputBorder(
             borderSide: BorderSide.none,
-            borderRadius: BorderRadius.circular(10)),
+            borderRadius: borderRadius ?? BorderRadius.circular(10)),
         suffixIcon: type == AppTextformfieldEnum.password
             ? GestureDetector(
                 onTap: suffixOnTap,

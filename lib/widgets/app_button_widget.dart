@@ -1,5 +1,8 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:phum_delivery/core/utils/app_colors.dart';
+import 'package:phum_delivery/core/utils/app_font.dart';
 
 class AppButtonWidget extends StatelessWidget {
   const AppButtonWidget({
@@ -10,6 +13,8 @@ class AppButtonWidget extends StatelessWidget {
     this.backgroundColor,
     this.textColor,
     this.borderRadius,
+    this.icon,
+    this.padding,
   });
 
   final String label;
@@ -18,6 +23,8 @@ class AppButtonWidget extends StatelessWidget {
   final Color? backgroundColor;
   final Color? textColor;
   final double? borderRadius;
+  final IconData? icon;
+  final EdgeInsets? padding;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +33,7 @@ class AppButtonWidget extends StatelessWidget {
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           backgroundColor: backgroundColor ?? AppColors.primary,
-          padding: const EdgeInsets.symmetric(vertical: 12),
+          padding: padding ?? const EdgeInsets.symmetric(vertical: 12),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(borderRadius ?? 10),
             side: BorderSide(
@@ -35,11 +42,27 @@ class AppButtonWidget extends StatelessWidget {
           ),
         ),
         onPressed: onPressed,
-        child: Text(label,
-            style: Theme.of(context)
-                .textTheme
-                .bodyMedium
-                ?.copyWith(color: textColor ?? Colors.white)),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            if (icon != null)
+              Row(
+                children: [
+                  Icon(
+                    icon,
+                    color: textColor ?? Colors.white,
+                  ),
+                  SizedBox(
+                    width: 4,
+                  ),
+                ],
+              ),
+            Text(label,
+                style: AppFont.semiBold(
+                    fontSize: 16, color: textColor ?? Colors.white)),
+          ],
+        ),
       ),
     );
   }

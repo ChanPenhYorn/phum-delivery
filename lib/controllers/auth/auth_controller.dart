@@ -55,21 +55,18 @@ class AuthController extends GetxController {
 
   Future<void> login(String email, String password) async {
     isLoading.value = true;
-    AppLogger.log("controller login run");
     user.value = await loginUseCase.login(email, password);
     isLoading.value = false;
   }
 
   Future<void> forgetPassword(String email) async {
     isLoading.value = true;
-    AppLogger.log("controller forgetPassword run");
     user.value = await loginUseCase.forgetPassword(email);
     isLoading.value = false;
   }
 
   Future<void> verifyOtp(String otp) async {
     isLoading.value = true;
-    AppLogger.log("controller verifyOtp run");
     user.value = await loginUseCase.verifyOtp(otp);
     isLoading.value = false;
     Get.toNamed(AppRoutes.createNewPassword);
@@ -77,7 +74,6 @@ class AuthController extends GetxController {
 
   Future<void> createNewPassword(String userId, String password) async {
     isLoading.value = true;
-    AppLogger.log("controller createNewPassword run");
     user.value = await loginUseCase.createNewPassword(userId, password);
     isLoading.value = false;
   }

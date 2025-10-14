@@ -14,34 +14,30 @@ class AuthRepositoryImpl implements AuthRepository {
 
   @override
   Future<UserEntity> login(String email, String password) async {
-    AppLogger.log("repo login run");
+    // AppLogger.log("repo login run");
     // final userModel = await remote.login(email, password);
-    final userModel =
-        UserEntity(id: "1", name: "Chanpenh", email: "chanpenh@gmail.com");
+    final userModel = remote.login(email, password);
     return userModel;
   }
 
   @override
   Future<UserEntity> forgetPassword(String email) async {
-    AppLogger.log("repo forgetPassword run");
-    final userModel =
-        UserEntity(id: "1", name: "Chanpenh", email: "chanpenh@gmail.com");
+    // AppLogger.log("repo forgetPassword run");
+    final userModel = remote.forgetPassword(email);
     return userModel;
   }
 
   @override
   Future<UserEntity> verifyOtp(String otp) async {
-    AppLogger.log("repo verifyOtp run");
-    final userModel =
-        UserEntity(id: "1", name: "Chanpenh", email: "chanpenh@gmail.com");
+    // AppLogger.log("repo verifyOtp run");
+    final userModel = remote.verifyOtp(otp);
     return userModel;
   }
 
   @override
   Future<UserEntity> createNewPassword(String userId, String password) async {
-    AppLogger.log("repo createNewPassword run");
-    final userModel =
-        UserEntity(id: "1", name: "Chanpenh", email: "chanpenh@gmail.com");
+    // AppLogger.log("repo createNewPassword run");
+    final userModel = remote.createNewPassword(userId, password);
     return userModel;
   }
 }

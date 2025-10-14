@@ -1,6 +1,8 @@
 // lib/core/services/api_client.dart
 import 'dart:convert';
+
 import 'package:http/http.dart' as http;
+import 'package:phum_delivery/core/utils/app_logger.dart';
 
 class ApiClient {
   final String baseUrl;
@@ -21,6 +23,11 @@ class ApiClient {
       Uri.parse("$baseUrl$endpoint"),
       headers: {...defaultHeaders, ...?headers},
     );
+
+    AppLogger.log("ROUTE REQUEST $baseUrl$endpoint");
+    AppLogger.log("HEADERS REQUEST $headers");
+    AppLogger.log("STATUS CODE ${response.statusCode}");
+
     return _processResponse(response);
   }
 
@@ -34,6 +41,11 @@ class ApiClient {
       headers: {...defaultHeaders, ...?headers},
       body: jsonEncode(body),
     );
+
+    AppLogger.log("ROUTE REQUEST $baseUrl$endpoint");
+    AppLogger.log("BODY REQUEST $body");
+    AppLogger.log("HEADERS REQUEST $headers");
+    AppLogger.log("STATUS CODE ${response.statusCode}");
     return _processResponse(response);
   }
 
@@ -43,7 +55,8 @@ class ApiClient {
     if (response.statusCode >= 200 && response.statusCode < 300) {
       return data;
     } else {
-      throw Exception("API Error: ${response.statusCode} - ${data["message"]}");
+      // throw ("API Error: ${response.statusCode} - ${data["message"]}");
+      return data;
     }
   }
 }

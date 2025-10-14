@@ -5,6 +5,10 @@ class AppColors {
   /// Primary with no dark mode
   static final Color basePrimary = HexColor('#FEF1F4');
 
+  static final Color baseSecondary = HexColor('#027A48');
+  static final Color lightBaseSecondary = HexColor('#ECFDF3');
+  static final Color ligthBaseNew = HexColor('#475467');
+
   ///
   static final Color primary = HexColor('#CA1043');
   static final Color secondary = HexColor('#0088FF');

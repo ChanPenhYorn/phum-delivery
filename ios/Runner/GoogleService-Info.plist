@@ -9,7 +9,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.phum.delivery.staging</string>
+	<string>com.phum.delivery.dev</string>
 	<key>PROJECT_ID</key>
 	<string>phum-delivery-26b4c</string>
 	<key>STORAGE_BUCKET</key>
@@ -25,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:677667737775:ios:67ba2c073e147bea52445a</string>
+	<string>1:677667737775:ios:cb98150e11bb5c7b52445a</string>
 </dict>
 </plist>

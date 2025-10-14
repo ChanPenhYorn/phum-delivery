@@ -26,4 +26,5 @@ class AssetSvg {
   static const String switchLanguage = 'assets/svg/switch_language.svg';
   static const String translate = 'assets/svg/translate.svg';
   static const String volume = 'assets/svg/volume.svg';
+  static const String arrowTop = 'assets/svg/arrow_top.svg';
 }

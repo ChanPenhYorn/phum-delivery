@@ -1,6 +1,3 @@
-// lib/data/datasources/auth_remote_ds.dart
-import 'package:phum_delivery/core/utils/app_logger.dart';
-
 import 'package:phum_delivery/core/services/api/api_service.dart';
 import 'package:phum_delivery/data/models/user_model.dart';
 
@@ -9,7 +6,6 @@ class AuthRemoteDataSource {
   AuthRemoteDataSource(this.client);
 
   Future<UserModel> login(String email, String password) async {
-    AppLogger.log("remote login run");
     final response = await client.post('/login', {
       "email": email,
       "password": password,
@@ -19,7 +15,6 @@ class AuthRemoteDataSource {
   }
 
   Future<UserModel> forgetPassword(String email) async {
-    AppLogger.log("remote forgetPassword run");
     final response = await client.post('/forget-password', {
       "email": email,
     });
@@ -28,7 +23,6 @@ class AuthRemoteDataSource {
   }
 
   Future<UserModel> verifyOtp(String otp) async {
-    AppLogger.log("remote verifyOtp run");
     final response = await client.post('/verify-otp', {
       "otp": otp,
     });
@@ -37,7 +31,6 @@ class AuthRemoteDataSource {
   }
 
   Future<UserModel> createNewPassword(String userId, String password) async {
-    AppLogger.log("remote createNewPassword run");
     final response = await client.post('/create-new-password', {
       "user_id": userId,
       "password": password,

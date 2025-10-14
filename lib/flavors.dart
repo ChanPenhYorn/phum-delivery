@@ -23,11 +23,12 @@ class F {
   static String get baseUrl {
     switch (appFlavor) {
       case Flavor.dev:
-        return 'https://dev.example.com';
+        // return 'https://dev.example.com';
+        return 'https://jsonplaceholder.typicode.com/todos/1';
       case Flavor.staging:
-        return 'https://staging.example.com';
+        return 'https://jsonplaceholder.typicode.com/todos/1';
       case Flavor.prod:
-        return 'https://example.com';
+        return 'https://jsonplaceholder.typicode.com/todos/1';
     }
   }
 
