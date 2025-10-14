@@ -3,11 +3,15 @@ import 'package:hexcolor/hexcolor.dart';
 
 class AppColors {
   /// Primary with no dark mode
+  static final Color basePrimary = HexColor('#FEF1F4');
+
+  ///
   static final Color primary = HexColor('#CA1043');
   static final Color secondary = HexColor('#0088FF');
   static const Color white = Colors.white;
   static const Color black = Colors.black;
-  static final Color gray = HexColor('#F2F4F7');
+  static final Color gray = Colors.grey;
+  static final Color lightGray = HexColor('#F2F4F7');
 
   // Primary Colors
   static const Color primaryLight = Colors.blue;

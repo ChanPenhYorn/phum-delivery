@@ -19,7 +19,13 @@ class OtpScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final email = Get.arguments["email"];
     final authController = Get.find<AuthController>();
-    authController.startTimer();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (authController.remainingSeconds.value == 0) {
+        authController.startTimer();
+      }
+    });
+    // authController.startTimer();
 
     final defaultPinTheme = PinTheme(
       width: 56,
@@ -57,21 +63,32 @@ class OtpScreen extends StatelessWidget {
             ),
         body: Padding(
           padding: const EdgeInsets.all(16.0),
-          child: Form(
-            key: _formKey,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                // SizedBox(height: 24),
-                Text("Enter OTP Code", style: AppFont.semiBold(fontSize: 36)),
-                Text(
-                    "Check your email! We’ve sent a one-time verification code to $email. Enter the code below to verify your account.",
-                    style: AppFont.regular(fontSize: 16)),
-                SizedBox(height: 16),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // SizedBox(height: 24),
+              Text("Enter OTP Code", style: AppFont.semiBold(fontSize: 36)),
+              Text(
+                  "Check your email! We’ve sent a one-time verification code to $email. Enter the code below to verify your account.",
+                  style: AppFont.regular(fontSize: 16)),
+              SizedBox(height: 16),
 
-                Center(
+              Center(
+                child: Form(
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  key: _formKey,
                   child: Pinput(
+                    validator: (s) {
+                      if (s == null || s.isEmpty) {
+                        return 'Please enter a PIN';
+                      }
+                      if (s.length != 4) {
+                        // Example: requiring a 4-digit PIN
+                        return 'PIN must be 4 digits';
+                      }
+                      return null;
+                    },
                     length: 4,
                     controller: emailController,
                     defaultPinTheme: defaultPinTheme,
@@ -83,55 +100,54 @@ class OtpScreen extends StatelessWidget {
                     },
                   ),
                 ),
+              ),
 
-                SizedBox(height: 16),
-                Center(
-                    child: Obx(
-                  () => GestureDetector(
-                    onTap: () {
-                      authController.remainingSeconds.value <= 0
-                          ? authController.startTimer()
-                          : null;
-                    },
-                    child: RichText(
-                        text: authController.remainingSeconds.value > 0
-                            ? TextSpan(children: [
-                                TextSpan(
-                                    text: "Your resend the code in ",
-                                    style: AppFont.regular(fontSize: 16)),
-                                TextSpan(
-                                    text:
-                                        "${authController.remainingSeconds.value}",
-                                    style: AppFont.semiBold(
-                                        fontSize: 16,
-                                        color: AppColors.primary)),
-                                TextSpan(
-                                    text: " seconds",
-                                    style: AppFont.regular(fontSize: 16)),
-                              ])
-                            : TextSpan(children: [
-                                TextSpan(
-                                    text: "Resend Code",
-                                    style: AppFont.semiBold(
-                                        fontSize: 16,
-                                        color: AppColors.secondary)),
-                              ])),
-                  ),
-                )),
-                SizedBox(height: 16),
-                AppButtonWidget(
-                  borderRadius: 30,
-                  isExpanded: true,
-                  label: "Verify",
-                  onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-                      verifyOtp();
-                    }
-                    AppLogger.log("Click Verify button");
+              SizedBox(height: 16),
+              Center(
+                  child: Obx(
+                () => GestureDetector(
+                  onTap: () {
+                    authController.remainingSeconds.value <= 0
+                        ? authController.startTimer()
+                        : null;
                   },
+                  child: RichText(
+                      text: authController.remainingSeconds.value > 0
+                          ? TextSpan(children: [
+                              TextSpan(
+                                  text: "Your resend the code in ",
+                                  style: AppFont.regular(fontSize: 16)),
+                              TextSpan(
+                                  text:
+                                      "${authController.remainingSeconds.value}",
+                                  style: AppFont.semiBold(
+                                      fontSize: 16, color: AppColors.primary)),
+                              TextSpan(
+                                  text: " seconds",
+                                  style: AppFont.regular(fontSize: 16)),
+                            ])
+                          : TextSpan(children: [
+                              TextSpan(
+                                  text: "Resend Code",
+                                  style: AppFont.semiBold(
+                                      fontSize: 16,
+                                      color: AppColors.secondary)),
+                            ])),
                 ),
-              ],
-            ),
+              )),
+              SizedBox(height: 16),
+              AppButtonWidget(
+                borderRadius: 30,
+                isExpanded: true,
+                label: "Verify",
+                onPressed: () {
+                  if (_formKey.currentState!.validate()) {
+                    verifyOtp();
+                  }
+                  AppLogger.log("Click Verify button");
+                },
+              ),
+            ],
           ),
         ));
   }

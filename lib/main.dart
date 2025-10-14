@@ -9,7 +9,7 @@ import 'package:phum_delivery/core/utils/app_translation.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
 import 'controllers/theme_controller.dart';
-import 'firebase_options_dev.dart';
+import 'firebase_options.dart';
 import 'flavors.dart';
 
 Future<void> main() async {

@@ -23,6 +23,12 @@ class AuthController extends GetxController {
 
   //! methods
 
+  @override
+  void dispose() {
+    super.dispose();
+    timer?.cancel();
+  }
+
   void startTimer() {
     AppLogger.log("controller start timer run");
     remainingSeconds.value = 5;

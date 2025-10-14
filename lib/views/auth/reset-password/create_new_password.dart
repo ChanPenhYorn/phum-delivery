@@ -4,6 +4,7 @@ import 'package:phum_delivery/controllers/auth/auth_controller.dart';
 import 'package:phum_delivery/core/utils/app_font.dart';
 import 'package:phum_delivery/core/utils/app_logger.dart';
 import 'package:phum_delivery/core/utils/enum/app_textformfield_enum.dart';
+import 'package:phum_delivery/routes/app_route.dart';
 import 'package:phum_delivery/widgets/app_action_widget.dart';
 import 'package:phum_delivery/widgets/app_button_widget.dart';
 
@@ -65,7 +66,7 @@ class CreateNewPasswordScreen extends StatelessWidget {
                   borderRadius: 30,
                   isExpanded: true,
                   label: "Continue",
-                  onPressed: () {
+                  onPressed: () async {
                     if (_formKey.currentState!.validate()) {
                       // authController.forgetPassword(emailController.text);
                       // Get.toNamed(AppRoutes.otp, arguments: {
@@ -74,9 +75,19 @@ class CreateNewPasswordScreen extends StatelessWidget {
                       authController.createNewPassword(passwordController.text,
                           confirmPasswordController.text);
 
-                      AppActionWidget.showToast(
-                        "Password created successfully",
+                      AppActionWidget.showSuccess(
+                        title: "Congratulations!",
+                        message:
+                            "Your account is ready to use. You willl be redirected to the Home page in a few seconds.",
+                        onPressedConfirm: () {
+                          Get.back();
+                        },
                       );
+
+                      await Future.delayed(const Duration(seconds: 3), () {
+                        // Get.back();
+                        Get.offAndToNamed(AppRoutes.login);
+                      });
                     }
 
                     AppLogger.log("Continue button pressed");

@@ -79,7 +79,7 @@ class AppTextformfieldWidget extends StatelessWidget {
             .textTheme
             .bodyMedium!
             .copyWith(color: AppColors.primary, fontWeight: FontWeight.w500),
-        fillColor: fillColor ?? AppColors.gray,
+        fillColor: fillColor ?? AppColors.lightGray,
         filled: true,
         focusColor: AppColors.secondary,
         hoverColor: AppColors.secondary,

@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:get/get.dart';
 import 'package:phum_delivery/core/utils/app_colors.dart';
@@ -217,5 +219,102 @@ class AppActionWidget {
             color: Colors.grey,
           ),
         ));
+  }
+
+  static showSuccess(
+      {String? message,
+      String? iconPath,
+      String? title,
+      String? cancelTitle,
+      String? confirmTitle,
+      void Function()? onPressedConfirm,
+      bool cancel = true}) {
+    Get.dialog(Dialog(
+      backgroundColor: Get.theme.scaffoldBackgroundColor,
+      child: PopScope(
+        canPop: false,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const SizedBox(height: 32),
+
+            Container(
+              padding: EdgeInsets.all(25),
+              decoration: BoxDecoration(
+                  color: AppColors.basePrimary,
+                  borderRadius: BorderRadius.circular(100)),
+              child: Container(
+                decoration: BoxDecoration(
+                    color: AppColors.primary,
+                    borderRadius: BorderRadius.circular(100)),
+                padding: EdgeInsets.all(25),
+                child: SvgPicture.asset(
+                  iconPath ?? 'assets/svg/success.svg',
+                  width: 32,
+                  height: 32,
+                  colorFilter: ColorFilter.mode(
+                    AppColors.white,
+                    BlendMode.srcIn,
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(height: 32),
+
+            Text(
+              textAlign: TextAlign.center,
+              title?.tr ?? "title",
+              style: Get.theme.textTheme.titleMedium!
+                  .copyWith(fontWeight: FontWeight.w500),
+            ),
+            const SizedBox(height: 8),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8),
+              child: Text(
+                textAlign: TextAlign.center,
+                message?.tr ?? "message",
+                style: Get.theme.textTheme.bodyMedium,
+                // textAlign: TextAlign.center,
+              ),
+            ),
+            const SizedBox(height: 32),
+            Center(
+              child: CupertinoActivityIndicator(
+                radius: 20.0, // Adjust the size
+                color: AppColors.gray, // Customize the color
+              ),
+            ),
+            const SizedBox(height: 32),
+
+            // OverflowBar(
+            //   children: [
+            //     if (cancel)
+            //       TextButton(
+            //         onPressed: () {
+            //           Get.back(); // Close the dialog
+            //         },
+            //         child: Text(
+            //           cancelTitle?.tr ?? 'cancel'.tr,
+            //           style: Get.theme.textTheme.bodyMedium!
+            //               .copyWith(color: AppColors.primary),
+            //         ),
+            //       ),
+            //     if (onPressedConfirm != null)
+            //       ElevatedButton(
+            //         style: ElevatedButton.styleFrom(
+            //             backgroundColor: AppColors.primary),
+            //         onPressed: onPressedConfirm,
+            //         child: Text(
+            //           confirmTitle?.tr ?? 'okay'.tr,
+            //           style: Get.theme.textTheme.bodyMedium!
+            //               .copyWith(color: Colors.white),
+            //         ),
+            //       ),
+            //   ],
+            // ),
+          ],
+        ),
+      ),
+    ));
   }
 }
