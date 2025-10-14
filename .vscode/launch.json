@@ -6,7 +6,6 @@
             "request": "launch",
             "type": "dart",
             "flutterMode": "debug",
-            "preLaunchTask": "copy-firebase-dev",
             "args": [
                 "--flavor",
                 "dev"
@@ -18,7 +17,6 @@
             "request": "launch",
             "type": "dart",
             "flutterMode": "debug",
-            "preLaunchTask": "copy-firebase-staging",
             "args": [
                 "--flavor",
                 "staging"
@@ -30,12 +28,11 @@
             "request": "launch",
             "type": "dart",
             "flutterMode": "debug",
-            "preLaunchTask": "copy-firebase-prod",
             "args": [
                 "--flavor",
                 "prod"
             ],
-            "program": "lib/main_prod.dart"
-        }
+            "program": "lib/main.dart"
+        },
     ]
 }

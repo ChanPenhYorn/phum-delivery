@@ -53,22 +53,35 @@ flavorizr:
       app:
         name: "Delivery Dev"
       android:
-        applicationId: "com.penh.delivery.dev"
+        applicationId: "com.phum.delivery.dev"
+        firebase:
+          config: ".firebase/dev/android/google-services.json"
       ios:
-        bundleId: "com.penh.delivery.dev" 
+        bundleId: "com.phum.delivery.dev"
+        firebase:
+          config: ".firebase/dev/ios/GoogleService-Info.plist"
+         
 
     staging:
       app:
         name: "Delivery Staging"
       android:
-        applicationId: "com.penh.delivery.staging"
+        applicationId: "com.phum.delivery.staging"
+        firebase:
+          config: ".firebase/staging/android/google-services.json"
       ios:
-        bundleId: "com.penh.delivery.staging"
+        bundleId: "com.phum.delivery.staging"
+        firebase:
+          config: ".firebase/staging/ios/GoogleService-Info.plist"
         
     prod:
       app:
         name: "Delivery Prod"
       android:
-        applicationId: "com.penh.delivery"
+        applicationId: "com.phum.delivery"
+        firebase:
+          config: ".firebase/prod/android/google-services.json"
       ios:
-        bundleId: "com.penh.delivery"
+        bundleId: "com.phum.delivery"
+        firebase:
+          config: ".firebase/prod/ios/GoogleService-Info.plist"

@@ -1,4 +1,15 @@
   flutterfire configure \
+    --project=phum-delivery-26b4c \
+    --platforms=android,ios \
+    --android-package-name=com.phum.delivery.staging \
+    --ios-bundle-id=com.phum.delivery.staging \
+    --out=lib/firebase_options_staging.dart \
+    --yes
+
+
+
+
+      flutterfire configure \
     --project=penh-delivery \
     --platforms=android,ios,web,macos,windows \
     --android-package-name=com.penh.delivery.prod \

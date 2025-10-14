@@ -9,15 +9,14 @@ import 'package:phum_delivery/core/utils/app_translation.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
 import 'controllers/theme_controller.dart';
-import 'firebase_options.dart';
+import 'firebase_options_dev.dart';
 import 'flavors.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   FirebaseApp firebaseApp = await Firebase.initializeApp(
-    options: DefaultFirebaseOptionsProd.currentPlatform,
+    options: DefaultFirebaseOptions.currentPlatform,
   );
-
   // Pass all uncaught "fatal" errors from the framework to Crashlytics.
   FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
 
@@ -40,12 +39,12 @@ Future<void> main() async {
   Get.put(ThemeController());
   AppTranslation translations = AppTranslation();
   translations.loadTranslations();
-  F.appFlavor = Flavor.prod;
+  F.appFlavor = Flavor.dev;
 
   PackageInfo packageInfo = await PackageInfo.fromPlatform();
   String bundleId = packageInfo.packageName;
 
-  AppLogger.log("Run on Production Environment");
-  AppLogger.log("Prod Bundle ID: $bundleId");
+  AppLogger.log("Run on Dev Environment");
+  AppLogger.log("Dev Bundle ID: $bundleId");
   runApp(App(translations: translations));
 }

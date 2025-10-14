@@ -14,10 +14,13 @@ import 'package:flutter/foundation.dart'
 ///   options: DefaultFirebaseOptions.currentPlatform,
 /// );
 /// ```
-class DefaultFirebaseOptionsStaging {
+class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      return web;
+      throw UnsupportedError(
+        'DefaultFirebaseOptions have not been configured for web - '
+        'you can reconfigure this by running the FlutterFire CLI again.',
+      );
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -25,9 +28,15 @@ class DefaultFirebaseOptionsStaging {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        return macos;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for macos - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.windows:
-        return windows;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for windows - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.linux:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for linux - '
@@ -40,50 +49,20 @@ class DefaultFirebaseOptionsStaging {
     }
   }
 
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyBMZWAaES2WAyEehkhjhS6A4kMdmIBfJKA',
-    appId: '1:537539882873:web:18fafd842b4586aaaec9a8',
-    messagingSenderId: '537539882873',
-    projectId: 'penh-delivery-staging',
-    authDomain: 'penh-delivery-staging.firebaseapp.com',
-    storageBucket: 'penh-delivery-staging.firebasestorage.app',
-    measurementId: 'G-98XT36JJ7G',
-  );
-
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDZGJH7XpJBdFWHFflfM2bTa6zGbja_6SY',
-    appId: '1:537539882873:android:e74ecc89829512a7aec9a8',
-    messagingSenderId: '537539882873',
-    projectId: 'penh-delivery-staging',
-    storageBucket: 'penh-delivery-staging.firebasestorage.app',
+    apiKey: 'AIzaSyA7qYsycK7cPf7WGAP4PrKYD8WfimxjA8g',
+    appId: '1:677667737775:android:92949f1524c957a852445a',
+    messagingSenderId: '677667737775',
+    projectId: 'phum-delivery-26b4c',
+    storageBucket: 'phum-delivery-26b4c.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyDS3v25G1FnKq4avTcGLjaOc5nW0QwC1OQ',
-    appId: '1:537539882873:ios:922c35d2f9a1a01baec9a8',
-    messagingSenderId: '537539882873',
-    projectId: 'penh-delivery-staging',
-    storageBucket: 'penh-delivery-staging.firebasestorage.app',
-    iosBundleId: 'com.penh.delivery.staging',
+    apiKey: 'AIzaSyBVZs9oe7_cUIoITn2rgfOb16iGs5vo5TQ',
+    appId: '1:677667737775:ios:67ba2c073e147bea52445a',
+    messagingSenderId: '677667737775',
+    projectId: 'phum-delivery-26b4c',
+    storageBucket: 'phum-delivery-26b4c.firebasestorage.app',
+    iosBundleId: 'com.phum.delivery.staging',
   );
-
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyDS3v25G1FnKq4avTcGLjaOc5nW0QwC1OQ',
-    appId: '1:537539882873:ios:a6d0a382cb213e1eaec9a8',
-    messagingSenderId: '537539882873',
-    projectId: 'penh-delivery-staging',
-    storageBucket: 'penh-delivery-staging.firebasestorage.app',
-    iosBundleId: 'com.example.todoKh',
-  );
-
-  static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyBMZWAaES2WAyEehkhjhS6A4kMdmIBfJKA',
-    appId: '1:537539882873:web:6163b1bc2055c7d2aec9a8',
-    messagingSenderId: '537539882873',
-    projectId: 'penh-delivery-staging',
-    authDomain: 'penh-delivery-staging.firebaseapp.com',
-    storageBucket: 'penh-delivery-staging.firebasestorage.app',
-    measurementId: 'G-DB84R3ZKQK',
-  );
-
 }
