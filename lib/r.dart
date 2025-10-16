@@ -4,6 +4,7 @@ class AssetLocales {
 }
 
 class AssetSvg {
+  static const String settingProfile = 'assets/svg/setting_profile.svg';
   static const String addDocument = 'assets/svg/add_document.svg';
   static const String appLogo = 'assets/svg/app_logo.svg';
   static const String bizLogo = 'assets/svg/biz_logo.svg';
@@ -27,4 +28,22 @@ class AssetSvg {
   static const String translate = 'assets/svg/translate.svg';
   static const String volume = 'assets/svg/volume.svg';
   static const String arrowTop = 'assets/svg/arrow_top.svg';
+  static const String motoDelivery = 'assets/images/moto_delivery.png';
+}
+
+class SettingSvg {
+  static const String settingProfile = 'assets/svg/setting/person.svg';
+  static const String settingLogout = 'assets/svg/setting/logout.svg';
+  static const String settingNotification =
+      'assets/svg/setting/notification.svg';
+  static const String settingLanguage = 'assets/svg/setting/language.svg';
+  static const String phone = 'assets/svg/setting/phone.svg';
+  static const String province = 'assets/svg/setting/province.svg';
+  static const String district = 'assets/svg/setting/district.svg';
+  static const String commune = 'assets/svg/setting/commune.svg';
+  static const String village = 'assets/svg/setting/village.svg';
+  static const String house = 'assets/svg/setting/house.svg';
+  static const String street = 'assets/svg/setting/street.svg';
+  static const String date = 'assets/svg/setting/date.svg';
+  static const String email = 'assets/svg/setting/email.svg';
 }

@@ -7,12 +7,16 @@ import 'package:phum_delivery/controllers/theme_controller.dart';
 import 'package:phum_delivery/core/utils/app_colors.dart';
 import 'package:phum_delivery/core/utils/app_font.dart';
 import 'package:phum_delivery/domain/entities/delivery_item_entity.dart';
+import 'package:phum_delivery/routes/app_route.dart';
+import 'package:phum_delivery/widgets/app_action_widget.dart';
 import 'package:phum_delivery/widgets/app_button_widget.dart';
 import 'package:phum_delivery/widgets/app_cache_network_image_widget.dart';
 import 'package:phum_delivery/widgets/app_textformfield_widget.dart';
 import 'package:phum_delivery/r.dart';
 import 'package:phum_delivery/widgets/shimmer/home/delivery_item_shimmer.dart';
+import 'package:phum_delivery/widgets/shimmer/shimmer_item_widget.dart';
 import 'package:phum_delivery/widgets/shimmer/user_profile_shimmer.dart';
+import 'package:shimmer/shimmer.dart';
 
 class HomeScreen extends StatelessWidget {
   final ThemeController themeController = Get.find();
@@ -25,6 +29,7 @@ class HomeScreen extends StatelessWidget {
     final homeController = Get.find<HomeController>();
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: AppColors.lightGray,
       body: RefreshIndicator(
         color: AppColors.primary,
@@ -33,6 +38,7 @@ class HomeScreen extends StatelessWidget {
           homeController.deliveryItems("");
         },
         child: CustomScrollView(
+          physics: const NeverScrollableScrollPhysics(),
           slivers: [
             // --- AppBar ---
             SliverAppBar(
@@ -45,35 +51,65 @@ class HomeScreen extends StatelessWidget {
                 SvgPicture.asset("assets/svg/moon.svg", width: 24, height: 24),
                 const SizedBox(width: 16),
               ],
-              title: Row(
-                children: [
-                  Container(
-                    padding: const EdgeInsets.all(2),
-                    decoration: BoxDecoration(
-                      color: AppColors.white,
-                      shape: BoxShape.circle,
-                      border: Border.all(color: Colors.white, width: 2),
+              title: GestureDetector(
+                onTap: () {
+                  Get.toNamed(AppRoutes.setting);
+                },
+                child: Row(
+                  children: [
+                    const SizedBox(width: 16),
+                    Container(
+                      padding: const EdgeInsets.all(2),
+                      decoration: BoxDecoration(
+                        color: AppColors.white,
+                        shape: BoxShape.circle,
+                        border: Border.all(color: Colors.white, width: 2),
+                      ),
+                      child: ClipOval(child: Obx(() {
+                        if (homeController.isLoadingProfile.value) {
+                          return UserProfileShimmer();
+                        }
+                        return AppCachedNetwordImageWidget(
+                          width: 40,
+                          height: 40,
+                          imageUrl:
+                              homeController.userModel.value?.profile ?? "",
+                        );
+                      })),
                     ),
-                    child: ClipOval(child: Obx(() {
+                    const SizedBox(width: 10),
+                    Obx(() {
                       if (homeController.isLoadingProfile.value) {
-                        return UserProfileShimmer();
+                        return Shimmer.fromColors(
+                          baseColor: Colors.grey[300]!,
+                          highlightColor: Colors.grey[100]!,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              ShimmerItemWidget(
+                                width: 100,
+                              ),
+                              SizedBox(height: 8),
+                              ShimmerItemWidget(
+                                width: 100,
+                              )
+                            ],
+                          ),
+                        );
                       }
-                      return AppCachedNetwordImageWidget(
-                        width: 40,
-                        height: 40,
-                        imageUrl: homeController.userModel.value?.profile ?? "",
+                      return Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(homeController.greeting.value,
+                              style: AppFont.regular(fontSize: 14)),
+                          Text(
+                              "${homeController.userModel.value?.firstName} ${homeController.userModel.value?.lastName}",
+                              style: AppFont.semiBold(fontSize: 14)),
+                        ],
                       );
-                    })),
-                  ),
-                  const SizedBox(width: 10),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text("Morning", style: AppFont.regular(fontSize: 14)),
-                      Text("Henry", style: AppFont.semiBold(fontSize: 14)),
-                    ],
-                  ),
-                ],
+                    })
+                  ],
+                ),
               ),
               pinned: true,
             ),
@@ -105,6 +141,7 @@ class HomeScreen extends StatelessWidget {
 
             // --- Main List Section ---
             SliverFillRemaining(
+                // hasScrollBody: true,
                 child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
               decoration: BoxDecoration(
@@ -117,6 +154,7 @@ class HomeScreen extends StatelessWidget {
                     prefixIcon: const Icon(Icons.search),
                     hintText: "Search",
                     controller: searchController,
+                    isRequried: false,
                     borderRadius: BorderRadius.circular(30),
                   ),
                   const SizedBox(height: 16),
@@ -130,6 +168,21 @@ class HomeScreen extends StatelessWidget {
                           itemBuilder: (context, index) {
                             return const DeliveryItemShimmer();
                           },
+                        );
+                      }
+
+                      if (homeController.deliveryItemsList.value.isEmpty) {
+                        return Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            const SizedBox(height: 16),
+                            AppActionWidget.noData(
+                                title: "There are currently no delivered tasks",
+                                message:
+                                    "Please check back later or assign a new task to get started.",
+                                icon: AssetSvg.motoDelivery),
+                            const SizedBox(height: 16),
+                          ],
                         );
                       }
                       final grouped = homeController.groupedDeliveries;

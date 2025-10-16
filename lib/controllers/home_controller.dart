@@ -12,6 +12,7 @@ class HomeController extends GetxController {
   @override
   void onInit() {
     super.onInit();
+    getGreeting();
     userProfile("");
     deliveryItems("");
   }
@@ -22,9 +23,22 @@ class HomeController extends GetxController {
   Rx<List<DeliveryItemEntity>> deliveryItemsList =
       Rx<List<DeliveryItemEntity>>([]);
 
+  RxString greeting = RxString("");
+
+  void getGreeting() {
+    final now = DateTime.now();
+    if (now.hour < 12) {
+      greeting.value = "Good Morning";
+    } else if (now.hour < 18) {
+      greeting.value = "Good Afternoon";
+    } else {
+      greeting.value = "Good Evening";
+    }
+  }
+
   Future<void> userProfile(String token) async {
     isLoadingProfile.value = true;
-    await Future.delayed(const Duration(seconds: 3));
+    await Future.delayed(const Duration(seconds: 1));
     isLoadingProfile.value = false;
     userModel.value = await useCase.userProfile(token);
   }
@@ -35,7 +49,7 @@ class HomeController extends GetxController {
 
   Future<void> deliveryItems(String token) async {
     isLoadingDeliveryItems.value = true;
-    await Future.delayed(const Duration(seconds: 3));
+    await Future.delayed(const Duration(seconds: 1));
     isLoadingDeliveryItems.value = false;
     deliveryItemsList.value.assignAll(await useCase.deliveryItems(token));
     groupDeliveriesByDate();

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:phum_delivery/core/utils/app_font.dart';
 import 'app_colors.dart'; // Import your AppColors class
 
 class AppThemes {
@@ -8,10 +9,12 @@ class AppThemes {
     colorScheme: _lightColorScheme, // Use the light color scheme
     scaffoldBackgroundColor: AppColors.backgroundLight,
     textTheme: _getTextTheme(false),
+
     appBarTheme: AppBarTheme(
+      titleSpacing: 0,
+      centerTitle: false,
       backgroundColor: AppColors.white,
-      titleTextStyle: TextStyle(
-          color: AppColors.black, fontSize: 20, fontWeight: FontWeight.bold),
+      titleTextStyle: AppFont.semiBold(fontSize: 16),
     ),
   );
 
@@ -22,9 +25,9 @@ class AppThemes {
     scaffoldBackgroundColor: AppColors.backgroundDark,
     textTheme: _getTextTheme(true),
     appBarTheme: AppBarTheme(
+      centerTitle: false,
       backgroundColor: AppColors.primaryDark,
-      titleTextStyle: TextStyle(
-          color: AppColors.black, fontSize: 20, fontWeight: FontWeight.bold),
+      titleTextStyle: AppFont.semiBold(fontSize: 16),
     ),
   );
 

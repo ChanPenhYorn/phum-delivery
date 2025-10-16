@@ -9,7 +9,7 @@ class AuthUseCase implements AuthRepository {
   final AuthRepositoryImpl repository;
   AuthUseCase(this.repository);
 
-  final AppLogger logger = AppLogger();
+  final Logger logger = Logger();
 
   @override
   Future<UserEntity> login(String email, String password) {

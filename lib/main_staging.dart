@@ -28,13 +28,13 @@ Future<void> main() async {
   };
 
   // Log Firebase info
-  AppLogger.log("🔥 Firebase initialized successfully");
-  AppLogger.log("App name: ${firebaseApp.name}");
-  AppLogger.log("Firebase options:");
-  AppLogger.log("  - Project ID: ${firebaseApp.options.projectId}");
-  AppLogger.log("  - App ID: ${firebaseApp.options.appId}");
-  AppLogger.log("  - API Key: ${firebaseApp.options.apiKey}");
-  AppLogger.log(
+  Logger.log("🔥 Firebase initialized successfully");
+  Logger.log("App name: ${firebaseApp.name}");
+  Logger.log("Firebase options:");
+  Logger.log("  - Project ID: ${firebaseApp.options.projectId}");
+  Logger.log("  - App ID: ${firebaseApp.options.appId}");
+  Logger.log("  - API Key: ${firebaseApp.options.apiKey}");
+  Logger.log(
       "  - Messaging Sender ID: ${firebaseApp.options.messagingSenderId}");
 
   Get.put(ThemeController());
@@ -45,7 +45,7 @@ Future<void> main() async {
   PackageInfo packageInfo = await PackageInfo.fromPlatform();
   String bundleId = packageInfo.packageName;
 
-  AppLogger.log("Run on Staging Environment");
-  AppLogger.log("Staging Bundle ID: $bundleId");
+  Logger.log("Run on Staging Environment");
+  Logger.log("Staging Bundle ID: $bundleId");
   runApp(App(translations: translations));
 }

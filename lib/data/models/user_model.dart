@@ -1,12 +1,15 @@
+import 'package:phum_delivery/data/models/addressa_model.dart';
 import '../../domain/entities/user_entity.dart';
 
 class UserModel extends UserEntity {
   const UserModel({
     required super.id,
-    required super.name,
+    required super.firstName,
+    required super.lastName,
     required super.email,
     required super.profile,
     required super.phone,
+    required super.dateOfBirth,
     required super.address,
     required super.createdAt,
   });
@@ -14,11 +17,13 @@ class UserModel extends UserEntity {
   factory UserModel.fromJson(Map<String, dynamic> json) {
     return UserModel(
       id: json['id'].toString(),
-      name: json['name'] ?? '',
+      firstName: json['firstName'] ?? '',
+      lastName: json['lastName'] ?? '',
       email: json['email'] ?? '',
       profile: json['profile'] ?? '',
       phone: json['phone'] ?? '',
-      address: json['address'] ?? '',
+      dateOfBirth: json['dateOfBirth'] ?? '',
+      address: AddressModel.fromJson(json['address'] ?? ''),
       createdAt: json['createdAt'] ?? '',
     );
   }
@@ -26,11 +31,12 @@ class UserModel extends UserEntity {
   Map<String, dynamic> toJson() {
     return {
       "id": id,
-      "name": name,
+      "firstName": firstName,
+      "lastName": lastName,
       "email": email,
       "profile": profile,
       "phone": phone,
-      "address": address,
+      "dateOfBirth": dateOfBirth,
       "createdAt": createdAt,
     };
   }

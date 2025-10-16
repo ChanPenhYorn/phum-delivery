@@ -95,7 +95,7 @@ class OtpScreen extends StatelessWidget {
                     focusedPinTheme: focusedPinTheme,
                     submittedPinTheme: submittedPinTheme,
                     onCompleted: (pin) {
-                      AppLogger.log(pin);
+                      Logger.log(pin);
                       authController.verifyOtp(pin);
                     },
                   ),
@@ -144,7 +144,7 @@ class OtpScreen extends StatelessWidget {
                   if (_formKey.currentState!.validate()) {
                     verifyOtp();
                   }
-                  AppLogger.log("Click Verify button");
+                  Logger.log("Click Verify button");
                 },
               ),
             ],

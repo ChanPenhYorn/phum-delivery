@@ -70,7 +70,7 @@ class ForgetPasswordScreen extends StatelessWidget {
                       });
                     }
 
-                    AppLogger.log("Continue button pressed");
+                    Logger.log("Continue button pressed");
                   },
                 ),
               ],

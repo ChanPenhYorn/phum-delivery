@@ -81,14 +81,14 @@ class LoginScreen extends StatelessWidget {
                     Get.toNamed(AppRoutes.home);
                   }
 
-                  AppLogger.log("Login button pressed");
+                  Logger.log("Login button pressed");
                 },
               ),
               Center(
                 child: TextButton(
                   onPressed: () {
                     Get.toNamed(AppRoutes.forgetPassword);
-                    AppLogger.log("Forget the Password button pressed");
+                    Logger.log("Forget the Password button pressed");
                   },
                   child: Text("Forget the Password?",
                       style: AppFont.semiBold(

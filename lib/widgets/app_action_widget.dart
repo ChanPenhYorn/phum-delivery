@@ -4,6 +4,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:get/get.dart';
 import 'package:phum_delivery/core/utils/app_colors.dart';
+import 'package:phum_delivery/core/utils/app_font.dart';
+import 'package:phum_delivery/r.dart';
 import 'package:phum_delivery/widgets/app_cache_network_image_widget.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
@@ -76,23 +78,18 @@ class AppActionWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,
           children: [
-            // const SizedBox(
-            //   height: 16,
-            // ),
             Image.asset(
-              icon ?? 'assets/images/no-content.png',
-              width: 32,
-              height: 32,
-              // color: AppColor.primaryColor,
+              icon ?? AssetSvg.motoDelivery,
             ),
-            // const SizedBox(
-            //   height: ,
-            // ),
             Text(
-              title ?? "",
+              title ?? "No Data Available",
               textAlign: TextAlign.center,
-              style: Get.theme.textTheme.titleMedium!
-                  .copyWith(fontWeight: FontWeight.w500),
+              style: AppFont.semiBold(fontSize: 18),
+            ),
+            Text(
+              message ?? "No Data Found",
+              textAlign: TextAlign.center,
+              style: AppFont.regular(fontSize: 14),
             ),
           ],
         ),

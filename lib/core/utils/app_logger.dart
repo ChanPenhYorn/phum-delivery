@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 
-class AppLogger {
+class Logger {
   static void log(String message) {
     debugPrint(" [LOG] : $message");
   }

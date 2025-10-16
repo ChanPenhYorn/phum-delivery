@@ -30,12 +30,12 @@ class AuthController extends GetxController {
   }
 
   void startTimer() {
-    AppLogger.log("controller start timer run");
+    Logger.log("controller start timer run");
     remainingSeconds.value = 5;
     timer = Timer.periodic(
       const Duration(seconds: 1),
       (Timer timer) {
-        AppLogger.log("Timmer run remainingSeconds ${remainingSeconds.value}");
+        Logger.log("Timmer run remainingSeconds ${remainingSeconds.value}");
         if (remainingSeconds.value <= 0) {
           timer.cancel();
         } else {

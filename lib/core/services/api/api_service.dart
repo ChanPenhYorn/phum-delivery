@@ -24,9 +24,9 @@ class ApiClient {
       headers: {...defaultHeaders, ...?headers},
     );
 
-    AppLogger.log("ROUTE REQUEST $baseUrl$endpoint");
-    AppLogger.log("HEADERS REQUEST $headers");
-    AppLogger.log("STATUS CODE ${response.statusCode}");
+    Logger.log("ROUTE REQUEST $baseUrl$endpoint");
+    Logger.log("HEADERS REQUEST $headers");
+    Logger.log("STATUS CODE ${response.statusCode}");
 
     return _processResponse(response);
   }
@@ -42,10 +42,10 @@ class ApiClient {
       body: jsonEncode(body),
     );
 
-    AppLogger.log("ROUTE REQUEST $baseUrl$endpoint");
-    AppLogger.log("BODY REQUEST $body");
-    AppLogger.log("HEADERS REQUEST $headers");
-    AppLogger.log("STATUS CODE ${response.statusCode}");
+    Logger.log("ROUTE REQUEST $baseUrl$endpoint");
+    Logger.log("BODY REQUEST $body");
+    Logger.log("HEADERS REQUEST $headers");
+    Logger.log("STATUS CODE ${response.statusCode}");
     return _processResponse(response);
   }
 
