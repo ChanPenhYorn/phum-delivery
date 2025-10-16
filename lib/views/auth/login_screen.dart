@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:phum_delivery/controllers/auth/auth_controller.dart';
+import 'package:phum_delivery/core/constants/app_string.dart';
 import 'package:phum_delivery/core/utils/app_colors.dart';
 import 'package:phum_delivery/core/utils/app_font.dart';
 import 'package:phum_delivery/core/utils/app_logger.dart';
@@ -34,10 +35,10 @@ class LoginScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(height: 40),
-              Text("Login to your Account",
+              Text(AppString.loginTitle.tr,
                   style: AppFont.semiBold(fontSize: 36)),
               SizedBox(height: 16),
-              Text("Email or Phone Number",
+              Text(AppString.emailOrPhone.tr,
                   style: AppFont.regular(fontSize: 16)),
               SizedBox(height: 8),
               Obx(() => AppTextformfieldWidget(
@@ -45,7 +46,7 @@ class LoginScreen extends StatelessWidget {
                     type: emailController.text.startsWith(RegExp(r'^[0-9]'))
                         ? AppTextformfieldEnum.phone
                         : AppTextformfieldEnum.email,
-                    hintText: "Enter your email or phone number",
+                    hintText: AppString.emailOrPhone.tr,
                     suffixIcon: authController.isShowClearIcon.value
                         ? Icon(Icons.cancel)
                         : null,
@@ -58,12 +59,12 @@ class LoginScreen extends StatelessWidget {
                     },
                   )),
               SizedBox(height: 16),
-              Text("Password", style: AppFont.regular(fontSize: 16)),
+              Text(AppString.password.tr, style: AppFont.regular(fontSize: 16)),
               SizedBox(height: 8),
               Obx(() => AppTextformfieldWidget(
                     controller: passwordController,
                     type: AppTextformfieldEnum.password,
-                    hintText: "Enter your password",
+                    hintText: AppString.password.tr,
                     obscureText: authController.isObscure.value,
                     suffixOnTap: authController.toggleObscure,
                   )),
@@ -71,7 +72,7 @@ class LoginScreen extends StatelessWidget {
               AppButtonWidget(
                 borderRadius: 30,
                 isExpanded: true,
-                label: "Login",
+                label: AppString.login.tr,
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
                     authController.login(
@@ -88,9 +89,9 @@ class LoginScreen extends StatelessWidget {
                 child: TextButton(
                   onPressed: () {
                     Get.toNamed(AppRoutes.forgetPassword);
-                    Logger.log("Forget the Password button pressed");
+                    Logger.log(AppString.forgotPassword.tr);
                   },
-                  child: Text("Forget the Password?",
+                  child: Text(AppString.forgotPassword.tr,
                       style: AppFont.semiBold(
                           fontSize: 16, color: AppColors.primary)),
                 ),

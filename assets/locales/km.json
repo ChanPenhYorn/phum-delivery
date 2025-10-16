@@ -3,5 +3,13 @@
   "good_morning": "អរុណសួស្តី",
   "good_afternoon": "អរុណសួស្តី",
   "good_evening": "រាត្រីសួស្តី",
-  "delivery_pickup": "ការទទួលការដឹកជញ្ជូន"
+  "delivery_pickup": "ការទទួលការដឹកជញ្ជូន",
+
+
+  "login_title": "ចូលគណនីរបស់អ្នក", 
+  "email_or_phone": "អ៊ីមែល ឬលេខទូរស័ព្ទ", 
+  "password": "ពាក្យសម្ងាត់", 
+  "login": "ចូល", 
+  "forgot_password": "ភ្លេចពាក្យសម្ងាត់",
+  "field_required": "វាលគឺចាំបាច់"
 }

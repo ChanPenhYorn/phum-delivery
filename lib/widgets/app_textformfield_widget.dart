@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
+import 'package:phum_delivery/core/constants/app_string.dart';
 import 'package:phum_delivery/core/utils/app_colors.dart';
 import 'package:phum_delivery/core/utils/app_reqex.dart';
 import 'package:phum_delivery/core/utils/app_textformfiled_formatter.dart';
@@ -143,7 +145,7 @@ class AppTextformfieldWidget extends StatelessWidget {
 
   String? validationMethod(String? value) {
     if (value == null || value.isEmpty && isRequried == true) {
-      return 'Field required'; // Improved error message
+      return AppString.fieldRequired.tr;
     }
 
     switch (type) {
