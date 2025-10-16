@@ -3,11 +3,14 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:phum_delivery/controllers/home_controller.dart';
+import 'package:phum_delivery/controllers/setting_controller.dart';
 import 'package:phum_delivery/controllers/theme_controller.dart';
+import 'package:phum_delivery/core/constants/app_string.dart';
 import 'package:phum_delivery/core/utils/app_colors.dart';
 import 'package:phum_delivery/core/utils/app_font.dart';
 import 'package:phum_delivery/domain/entities/delivery_item_entity.dart';
 import 'package:phum_delivery/routes/app_route.dart';
+import 'package:phum_delivery/views/setting/widgets/language_select_widget.dart';
 import 'package:phum_delivery/widgets/app_action_widget.dart';
 import 'package:phum_delivery/widgets/app_button_widget.dart';
 import 'package:phum_delivery/widgets/app_cache_network_image_widget.dart';
@@ -27,6 +30,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     TextEditingController searchController = TextEditingController();
     final homeController = Get.find<HomeController>();
+    final settingController = Get.find<SettingController>();
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -45,10 +49,19 @@ class HomeScreen extends StatelessWidget {
               automaticallyImplyLeading: false,
               backgroundColor: AppColors.lightGray,
               actions: [
-                SvgPicture.asset("assets/svg/cambodia.svg",
-                    width: 24, height: 24),
+                GestureDetector(
+                  onTap: () {
+                    languageSelectButtonSheet(context, settingController);
+                  },
+                  child: Obx(() => Image.asset(
+                      settingController.language.value == "km"
+                          ? AssetSvg.kmImage
+                          : AssetSvg.enImage,
+                      width: 24,
+                      height: 24)),
+                ),
                 const SizedBox(width: 16),
-                SvgPicture.asset("assets/svg/moon.svg", width: 24, height: 24),
+                SvgPicture.asset(AssetSvg.moon, width: 24, height: 24),
                 const SizedBox(width: 16),
               ],
               title: GestureDetector(
@@ -100,10 +113,10 @@ class HomeScreen extends StatelessWidget {
                       return Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(homeController.greeting.value,
+                          Text(homeController.greeting.value.tr,
                               style: AppFont.regular(fontSize: 14)),
                           Text(
-                              "${homeController.userModel.value?.firstName} ${homeController.userModel.value?.lastName}",
+                              "${homeController.userModel.value?.firstName} ${homeController.userModel.value?.lastName.tr}",
                               style: AppFont.semiBold(fontSize: 14)),
                         ],
                       );
@@ -122,7 +135,7 @@ class HomeScreen extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Delivery PickUp",
+                    Text(AppString.deliveryPickup.tr,
                         style: AppFont.semiBold(fontSize: 24)),
                     AppButtonWidget(
                       backgroundColor: AppColors.basePrimary,

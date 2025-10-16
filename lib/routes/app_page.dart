@@ -1,7 +1,7 @@
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:phum_delivery/bindings/auth_binding.dart';
 import 'package:phum_delivery/bindings/home_binding.dart';
-import 'package:phum_delivery/bindings/setting_binding.dart';
+
 import 'package:phum_delivery/bindings/splash_binding.dart';
 import 'package:phum_delivery/routes/app_route.dart';
 import 'package:phum_delivery/views/auth/login_screen.dart';
@@ -47,12 +47,10 @@ class AppPages {
     GetPage(
       name: AppRoutes.setting,
       page: () => SettingScreen(),
-      binding: SettingBinding(),
     ),
     GetPage(
       name: AppRoutes.personal,
       page: () => ProfileScreen(),
-      binding: SettingBinding(),
     ),
   ];
 }

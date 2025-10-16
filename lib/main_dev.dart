@@ -4,6 +4,8 @@ import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:phum_delivery/app.dart';
+import 'package:phum_delivery/controllers/setting_controller.dart';
+import 'package:phum_delivery/core/services/app_storage_service.dart';
 import 'package:phum_delivery/core/utils/app_logger.dart';
 import 'package:phum_delivery/core/utils/app_translation.dart';
 import 'package:package_info_plus/package_info_plus.dart';
@@ -17,6 +19,7 @@ Future<void> main() async {
   FirebaseApp firebaseApp = await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
   // Pass all uncaught "fatal" errors from the framework to Crashlytics.
   FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
 
@@ -36,9 +39,20 @@ Future<void> main() async {
   Logger.log(
       "  - Messaging Sender ID: ${firebaseApp.options.messagingSenderId}");
 
+  AppStorageService appStorageService = AppStorageService();
+  await appStorageService.init();
+
+  Locale locale = const Locale('en', 'US');
+
+  if (appStorageService.getLanguage() == 'km') {
+    locale = const Locale('km', 'KH');
+  } else {
+    locale = const Locale('en', 'US');
+  }
   Get.put(ThemeController());
+  Get.put(SettingController());
   AppTranslation translations = AppTranslation();
-  translations.loadTranslations();
+  await translations.loadTranslations();
   F.appFlavor = Flavor.dev;
 
   PackageInfo packageInfo = await PackageInfo.fromPlatform();
@@ -46,5 +60,5 @@ Future<void> main() async {
 
   Logger.log("Run on Dev Environment");
   Logger.log("Dev Bundle ID: $bundleId");
-  runApp(App(translations: translations));
+  runApp(App(translations: translations, locale: locale));
 }

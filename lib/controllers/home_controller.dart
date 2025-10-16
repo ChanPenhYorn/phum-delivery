@@ -28,11 +28,11 @@ class HomeController extends GetxController {
   void getGreeting() {
     final now = DateTime.now();
     if (now.hour < 12) {
-      greeting.value = "Good Morning";
+      greeting.value = "good_morning";
     } else if (now.hour < 18) {
-      greeting.value = "Good Afternoon";
+      greeting.value = "good_afternoon";
     } else {
-      greeting.value = "Good Evening";
+      greeting.value = "good_evening";
     }
   }
 

@@ -86,7 +86,7 @@ class ProfileScreen extends StatelessWidget {
                   ))
             ],
           ),
-          const SizedBox(height: 8),
+          // const SizedBox(height: 8),
           Container(
             decoration: BoxDecoration(
               color: AppColors.white,

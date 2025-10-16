@@ -31,8 +31,8 @@ class BuildContentItemWidget extends StatelessWidget {
             children: [
               Text(title,
                   style: AppFont.medium(
-                      fontSize: 10, color: AppColors.ligthBaseNew)),
-              Text(value, style: AppFont.medium(fontSize: 12)),
+                      fontSize: 12, color: AppColors.ligthBaseNew)),
+              Text(value, style: AppFont.medium(fontSize: 14)),
             ],
           ),
         ],

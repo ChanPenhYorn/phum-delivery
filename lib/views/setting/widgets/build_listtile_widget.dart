@@ -32,7 +32,7 @@ class BuildListTileWidget extends StatelessWidget {
     return ListTile(
       onTap: onTap,
       leading: leading,
-      title: Text(title, style: titleStyle ?? AppFont.medium(fontSize: 12)),
+      title: Text(title, style: titleStyle ?? AppFont.medium(fontSize: 14)),
       subtitle: subtitle != null
           ? Text(subtitle!,
               style: subtitleStyle ?? AppFont.regular(fontSize: 12))

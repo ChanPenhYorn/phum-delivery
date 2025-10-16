@@ -29,6 +29,11 @@ class AssetSvg {
   static const String volume = 'assets/svg/volume.svg';
   static const String arrowTop = 'assets/svg/arrow_top.svg';
   static const String motoDelivery = 'assets/images/moto_delivery.png';
+  static const String en = 'assets/svg/en.svg';
+  static const String km = 'assets/svg/khmer.svg';
+  static const String enImage = 'assets/images/english.png';
+  static const String kmImage = 'assets/images/khmer.png';
+  static const String moon = 'assets/svg/moon.svg';
 }
 
 class SettingSvg {

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-
 import 'package:phum_delivery/controllers/home_controller.dart';
 import 'package:phum_delivery/controllers/setting_controller.dart';
 import 'package:phum_delivery/core/utils/app_colors.dart';
@@ -9,6 +8,7 @@ import 'package:phum_delivery/core/utils/app_font.dart';
 import 'package:phum_delivery/r.dart';
 import 'package:phum_delivery/routes/app_route.dart';
 import 'package:phum_delivery/views/setting/widgets/build_listtile_widget.dart';
+import 'package:phum_delivery/views/setting/widgets/language_select_widget.dart';
 
 import 'package:phum_delivery/widgets/app_cache_network_image_widget.dart';
 
@@ -78,6 +78,8 @@ class SettingScreen extends StatelessWidget {
                                       Get.toNamed(AppRoutes.personal);
                                       break;
                                     case "Language":
+                                      languageSelectButtonSheet(
+                                          context, settingController);
                                       break;
                                     case "Notification":
                                       break;
