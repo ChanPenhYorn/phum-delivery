@@ -1,15 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+
 import 'package:phum_delivery/controllers/pickup_processing/processing_controller.dart';
+import 'package:phum_delivery/core/extension/space_extension.dart';
 import 'package:phum_delivery/core/utils/app_colors.dart';
 import 'package:phum_delivery/core/utils/app_font.dart';
 import 'package:phum_delivery/domain/entities/pickup_processing/delivery_entity.dart';
 import 'package:phum_delivery/domain/entities/pickup_processing/pickup_detail_entity.dart';
 import 'package:phum_delivery/r.dart';
 import 'package:phum_delivery/views/delivery/widgets/final_confirm_widget.dart';
+import 'package:phum_delivery/views/delivery/widgets/shimmer/delivery_profile_shimmer.dart';
+import 'package:phum_delivery/views/delivery/widgets/shimmer/final_confirm_shimmer.dart';
+import 'package:phum_delivery/views/delivery/widgets/shimmer/pickup_detail_shimmer.dart';
 import 'package:phum_delivery/views/delivery/widgets/shimmer/pickup_shimmer.dart';
+import 'package:phum_delivery/widgets/app_action_widget.dart';
 import 'package:phum_delivery/widgets/app_devider_widget.dart';
+import 'package:phum_delivery/widgets/shimmer/shimmer_item_widget.dart'
+    show ShimmerItemWidget;
 import 'widgets/pickup_card_widget.dart';
 
 class PickupProcessing extends StatelessWidget {
@@ -23,20 +31,49 @@ class PickupProcessing extends StatelessWidget {
         backgroundColor: AppColors.lightGray,
         appBar: AppBar(
           backgroundColor: AppColors.lightGray,
-          title: Text(pickupController.pickupModel.value?.delivery.name ?? ''),
+          title: Obx(() {
+            final pickUpData = pickupController.pickupModel.value;
+            if (pickupController.isLoading.value) {
+              return ShimmerItemWidget();
+            }
+
+            if (pickUpData == null) {
+              return Center(
+                child: AppActionWidget.noData(),
+              );
+            }
+            return Text(pickUpData.delivery.name);
+          }),
         ),
         body: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
             child: Obx(() {
               final pickUpData = pickupController.pickupModel.value;
 
-              if (!pickupController.isLoading.value) {
-                return const PickupShimmer();
+              if (pickupController.isLoading.value) {
+                return SingleChildScrollView(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const PickupShimmer(),
+                      16.height,
+                      const PickupDetailShimmer(),
+                      16.height,
+                      const DeliveryProfileShimmer(),
+                      16.height,
+                      ShimmerItemWidget(),
+                      16.height,
+                      FinalConfirmShimmer(),
+                    ],
+                  ),
+                );
               }
 
               if (pickUpData == null) {
-                return const Center(
-                  child: CircularProgressIndicator(),
+                return Center(
+                  child: AppActionWidget.noData(),
                 );
               }
               return CustomScrollView(

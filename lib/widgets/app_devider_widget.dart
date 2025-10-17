@@ -18,8 +18,8 @@ class AppDeviderWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Divider(
-      endIndent: endIndent ?? 50,
-      indent: indent ?? 50,
+      endIndent: endIndent ?? 0,
+      indent: indent ?? 0,
       height: height ?? 1,
       color: color ?? AppColors.lightGray,
     );

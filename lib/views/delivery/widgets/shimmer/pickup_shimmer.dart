@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:phum_delivery/core/extension/space_extension.dart';
+import 'package:phum_delivery/widgets/app_devider_widget.dart';
 import 'package:phum_delivery/widgets/shimmer/shimmer_item_widget.dart';
 import 'package:shimmer/shimmer.dart';
 
@@ -49,11 +50,11 @@ class PickupShimmer extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         ShimmerItemWidget(
-                          width: 200,
+                          width: 240,
                         ),
                         4.height,
                         ShimmerItemWidget(
-                          width: 240,
+                          width: 250,
                         ),
                       ],
                     ),
@@ -63,11 +64,11 @@ class PickupShimmer extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         ShimmerItemWidget(
-                          width: 200,
+                          width: 240,
                         ),
                         4.height,
                         ShimmerItemWidget(
-                          width: 240,
+                          width: 250,
                         ),
                       ],
                     ),
@@ -75,6 +76,19 @@ class PickupShimmer extends StatelessWidget {
                 ),
               ],
             ),
+            16.height,
+            AppDeviderWidget(),
+            16.height,
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                ShimmerItemWidget(),
+                16.width,
+                ShimmerItemWidget(),
+              ],
+            ),
+            16.height,
+            ShimmerItemWidget(),
           ],
         ),
       ),
