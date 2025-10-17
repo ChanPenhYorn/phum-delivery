@@ -203,8 +203,7 @@ class PickupProcessing extends StatelessWidget {
                       maxLines: 1),
                 ),
                 const SizedBox(width: 8),
-                Expanded(
-                    child: Container(
+                Container(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                   decoration: BoxDecoration(
@@ -216,7 +215,7 @@ class PickupProcessing extends StatelessWidget {
                           fontSize: 14, color: AppColors.ligthBaseNew),
                       overflow: TextOverflow.ellipsis,
                       maxLines: 1),
-                )),
+                ),
               ],
             ),
             const SizedBox(height: 16),
