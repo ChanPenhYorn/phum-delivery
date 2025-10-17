@@ -13,6 +13,8 @@ class AppButtonWidget extends StatelessWidget {
     this.borderRadius,
     this.icon,
     this.padding,
+    this.style,
+    this.textStyle,
   });
 
   final String label;
@@ -24,21 +26,25 @@ class AppButtonWidget extends StatelessWidget {
   final IconData? icon;
   final EdgeInsets? padding;
 
+  final ButtonStyle? style;
+  final TextStyle? textStyle;
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: isExpanded ? double.infinity : null,
       child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          backgroundColor: backgroundColor ?? AppColors.primary,
-          padding: padding ?? const EdgeInsets.symmetric(vertical: 12),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(borderRadius ?? 10),
-            side: BorderSide(
-              color: backgroundColor ?? AppColors.primary,
+        style: style ??
+            ElevatedButton.styleFrom(
+              backgroundColor: backgroundColor ?? AppColors.primary,
+              padding: padding ?? const EdgeInsets.symmetric(vertical: 12),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(borderRadius ?? 10),
+                side: BorderSide(
+                  color: backgroundColor ?? AppColors.primary,
+                ),
+              ),
             ),
-          ),
-        ),
         onPressed: onPressed,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -57,8 +63,9 @@ class AppButtonWidget extends StatelessWidget {
                 ],
               ),
             Text(label,
-                style: AppFont.semiBold(
-                    fontSize: 16, color: textColor ?? Colors.white)),
+                style: textStyle ??
+                    AppFont.semiBold(
+                        fontSize: 16, color: textColor ?? Colors.white)),
           ],
         ),
       ),

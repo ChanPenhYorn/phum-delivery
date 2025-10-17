@@ -1,6 +1,7 @@
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:phum_delivery/bindings/auth_binding.dart';
 import 'package:phum_delivery/bindings/home_binding.dart';
+import 'package:phum_delivery/bindings/pickup_binding.dart';
 
 import 'package:phum_delivery/bindings/splash_binding.dart';
 import 'package:phum_delivery/routes/app_route.dart';
@@ -12,6 +13,7 @@ import 'package:phum_delivery/views/home/home_screen.dart';
 import 'package:phum_delivery/views/setting/profile_screen.dart';
 import 'package:phum_delivery/views/setting/setting_screen.dart';
 import 'package:phum_delivery/views/splash/splash_screen.dart';
+import 'package:phum_delivery/views/delivery/pickup_processing.dart';
 
 class AppPages {
   static List<GetPage> routes = [
@@ -24,6 +26,8 @@ class AppPages {
         name: AppRoutes.splash,
         page: () => SplashScreen(),
         binding: SplashBinding()),
+
+    //! auth
     GetPage(
       name: AppRoutes.login,
       page: () => LoginScreen(),
@@ -44,6 +48,8 @@ class AppPages {
       page: () => CreateNewPasswordScreen(),
       binding: AuthBinding(),
     ),
+
+    //! setting
     GetPage(
       name: AppRoutes.setting,
       page: () => SettingScreen(),
@@ -51,6 +57,13 @@ class AppPages {
     GetPage(
       name: AppRoutes.personal,
       page: () => ProfileScreen(),
+    ),
+
+    //! delivery
+    GetPage(
+      name: AppRoutes.pickupProcessing,
+      page: () => PickupProcessing(),
+      binding: PickupBinding(),
     ),
   ];
 }

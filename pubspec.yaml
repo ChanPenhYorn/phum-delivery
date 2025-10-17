@@ -35,6 +35,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   get_storage: ^2.1.1
+  dotted_line: ^3.2.3
 
 
 

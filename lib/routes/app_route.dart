@@ -7,4 +7,5 @@ class AppRoutes {
   static const createNewPassword = '/create-new-password';
   static const setting = '/setting';
   static const personal = '/personal';
+  static const pickupProcessing = '/pickup-processing';
 }

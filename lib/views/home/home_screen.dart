@@ -16,7 +16,7 @@ import 'package:phum_delivery/widgets/app_button_widget.dart';
 import 'package:phum_delivery/widgets/app_cache_network_image_widget.dart';
 import 'package:phum_delivery/widgets/app_textformfield_widget.dart';
 import 'package:phum_delivery/r.dart';
-import 'package:phum_delivery/widgets/shimmer/home/delivery_item_shimmer.dart';
+import 'package:phum_delivery/views/home/shimmer/home/delivery_item_shimmer.dart';
 import 'package:phum_delivery/widgets/shimmer/shimmer_item_widget.dart';
 import 'package:phum_delivery/widgets/shimmer/user_profile_shimmer.dart';
 import 'package:shimmer/shimmer.dart';
@@ -228,8 +228,16 @@ class HomeScreen extends StatelessWidget {
                                     ),
                                   ),
                                   const SizedBox(height: 8),
-                                  ...dateItems
-                                      .map((item) => buildDeliveryItem(item)),
+                                  ...dateItems.map((item) => buildDeliveryItem(
+                                        item,
+                                        onTap: () {
+                                          Get.toNamed(
+                                              AppRoutes.pickupProcessing,
+                                              arguments: {
+                                                'deliveryName': item.name,
+                                              });
+                                        },
+                                      )),
                                   // const Divider(height: 24),
                                 ],
                               );
@@ -249,7 +257,8 @@ class HomeScreen extends StatelessWidget {
   }
 
   // ✅ Build each delivery item
-  Widget buildDeliveryItem(DeliveryItemEntity item) {
+  Widget buildDeliveryItem(DeliveryItemEntity item,
+      {required Function() onTap}) {
     return ListTile(
       leading: SvgPicture.asset(item.image, width: 40, height: 40),
       title: Text(item.name, style: AppFont.semiBold(fontSize: 16)),
@@ -259,20 +268,23 @@ class HomeScreen extends StatelessWidget {
           Text("${item.total} items",
               style:
                   AppFont.regular(fontSize: 14, color: AppColors.ligthBaseNew)),
-          RichText(
-            text: TextSpan(
-              children: [
-                TextSpan(
-                  text: "Go to pickup at ",
-                  style: AppFont.regular(
-                      fontSize: 14, color: AppColors.ligthBaseNew),
-                ),
-                TextSpan(
-                  text: "WS-TTP",
-                  style:
-                      AppFont.semiBold(fontSize: 14, color: AppColors.primary),
-                ),
-              ],
+          GestureDetector(
+            onTap: onTap,
+            child: RichText(
+              text: TextSpan(
+                children: [
+                  TextSpan(
+                    text: "Go to pickup at ",
+                    style: AppFont.regular(
+                        fontSize: 14, color: AppColors.ligthBaseNew),
+                  ),
+                  TextSpan(
+                    text: "WS-TTP",
+                    style: AppFont.semiBold(
+                        fontSize: 14, color: AppColors.primary),
+                  ),
+                ],
+              ),
             ),
           ),
         ],
