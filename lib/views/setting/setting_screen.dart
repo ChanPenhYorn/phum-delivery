@@ -9,9 +9,11 @@ import 'package:phum_delivery/r.dart';
 import 'package:phum_delivery/routes/app_route.dart';
 import 'package:phum_delivery/views/setting/widgets/build_listtile_widget.dart';
 import 'package:phum_delivery/views/setting/widgets/language_select_widget.dart';
+import 'package:phum_delivery/widgets/app_action_widget.dart';
 
 import 'package:phum_delivery/widgets/app_cache_network_image_widget.dart';
 
+import '../../core/constants/app_string.dart';
 import '../../core/utils/app_logger.dart';
 
 class SettingScreen extends StatelessWidget {
@@ -25,7 +27,7 @@ class SettingScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.lightGray,
       appBar: AppBar(
-        title: const Text("Setting"),
+        title: Text(AppString.settings.tr),
         backgroundColor: AppColors.lightGray,
       ),
       body: Column(
@@ -74,14 +76,14 @@ class SettingScreen extends StatelessWidget {
                                   Logger.log("Click ${data['title']}");
                                   final title = data["title"];
                                   switch (title) {
-                                    case "Profile":
+                                    case AppString.profile:
                                       Get.toNamed(AppRoutes.personal);
                                       break;
-                                    case "Language":
+                                    case AppString.language:
                                       languageSelectButtonSheet(
                                           context, settingController);
                                       break;
-                                    case "Notification":
+                                    case AppString.notification:
                                       break;
                                   }
                                 },
@@ -89,20 +91,21 @@ class SettingScreen extends StatelessWidget {
                                 leading: SvgPicture.asset(
                                   data["icon"],
                                 ),
-                                title: data["title"],
+                                title: "${data['title']}".tr,
                                 // subtitle: data["title"],
-                                trailing: data["title"] != "Notification"
-                                    ? const Icon(Icons.arrow_forward_ios,
-                                        size: 16)
-                                    : Obx(() => Switch(
-                                          value: settingController
-                                              .notification.value,
-                                          activeTrackColor: Colors.green,
-                                          onChanged: (value) {
-                                            settingController
-                                                .onNotificationToggle();
-                                          },
-                                        ))),
+                                trailing:
+                                    data["title"] != AppString.notification
+                                        ? const Icon(Icons.arrow_forward_ios,
+                                            size: 16)
+                                        : Obx(() => Switch(
+                                              value: settingController
+                                                  .notification.value,
+                                              activeTrackColor: Colors.green,
+                                              onChanged: (value) {
+                                                settingController
+                                                    .onNotificationToggle();
+                                              },
+                                            ))),
                             if (index <
                                 settingController.settingList.length - 1)
                               Divider(
@@ -122,10 +125,21 @@ class SettingScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(16),
                   ),
                   child: BuildListTileWidget(
-                    onTap: () {},
+                    onTap: () {
+                      AppActionWidget.showActionMessage(
+                        cancel: true,
+                        title: AppString.loggingOut.tr,
+                        message: AppString.loggingOutDescription.tr,
+                        cancelTitle: AppString.reject.tr,
+                        confirmTitle: AppString.okay.tr,
+                        onPressedConfirm: () {
+                          Get.back();
+                        },
+                      );
+                    },
                     settingController: settingController,
                     leading: SvgPicture.asset(SettingSvg.settingLogout),
-                    title: "Logout",
+                    title: AppString.logout.tr,
                     // subtitle: data["title"],
                     trailing: const Icon(Icons.arrow_forward_ios, size: 16),
                   ),

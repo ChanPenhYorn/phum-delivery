@@ -5,6 +5,7 @@ import 'package:phum_delivery/core/constants/app_string.dart';
 import 'package:phum_delivery/core/utils/app_colors.dart';
 import 'package:phum_delivery/core/utils/app_font.dart';
 import 'package:phum_delivery/core/utils/app_logger.dart';
+import 'package:phum_delivery/core/utils/app_textformfiled_formatter.dart';
 import 'package:phum_delivery/core/utils/enum/app_textformfield_enum.dart';
 import 'package:phum_delivery/routes/app_route.dart';
 import 'package:phum_delivery/widgets/app_button_widget.dart';
@@ -12,7 +13,11 @@ import 'package:phum_delivery/widgets/app_button_widget.dart';
 import '../../widgets/app_textformfield_widget.dart';
 
 class LoginScreen extends StatelessWidget {
-  final emailController = TextEditingController(text: "example@gmail.com");
+  final emailController = TextEditingController(
+      text: AppTextformfiledFormatter.phoneInputFormatter()
+          .formatEditUpdate(TextEditingValue(text: "0123456789"),
+              TextEditingValue(text: "0123456789"))
+          .text);
   final passwordController = TextEditingController(text: "123456");
 
   final _formKey = GlobalKey<FormState>();

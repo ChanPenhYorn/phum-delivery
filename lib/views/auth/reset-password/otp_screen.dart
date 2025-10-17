@@ -8,6 +8,8 @@ import 'package:phum_delivery/routes/app_route.dart';
 import 'package:phum_delivery/widgets/app_button_widget.dart';
 import 'package:pinput/pinput.dart';
 
+import '../../../core/constants/app_string.dart';
+
 class OtpScreen extends StatelessWidget {
   final emailController = TextEditingController();
 
@@ -68,9 +70,10 @@ class OtpScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // SizedBox(height: 24),
-              Text("Enter OTP Code", style: AppFont.semiBold(fontSize: 36)),
+              Text(AppString.enterOtp.tr,
+                  style: AppFont.semiBold(fontSize: 36)),
               Text(
-                  "Check your email! We’ve sent a one-time verification code to $email. Enter the code below to verify your account.",
+                  "${AppString.checkYourEmailOrPhone.tr}! ${AppString.weHaveSentOtp.tr} $email. ${AppString.enterBelowToVerify.tr}.",
                   style: AppFont.regular(fontSize: 16)),
               SizedBox(height: 16),
 
@@ -115,7 +118,7 @@ class OtpScreen extends StatelessWidget {
                       text: authController.remainingSeconds.value > 0
                           ? TextSpan(children: [
                               TextSpan(
-                                  text: "Your resend the code in ",
+                                  text: "${AppString.resentCodeIn.tr} ",
                                   style: AppFont.regular(fontSize: 16)),
                               TextSpan(
                                   text:
@@ -128,7 +131,7 @@ class OtpScreen extends StatelessWidget {
                             ])
                           : TextSpan(children: [
                               TextSpan(
-                                  text: "Resend Code",
+                                  text: AppString.resentCode.tr,
                                   style: AppFont.semiBold(
                                       fontSize: 16,
                                       color: AppColors.secondary)),
@@ -139,7 +142,7 @@ class OtpScreen extends StatelessWidget {
               AppButtonWidget(
                 borderRadius: 30,
                 isExpanded: true,
-                label: "Verify",
+                label: AppString.verify.tr,
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
                     verifyOtp();

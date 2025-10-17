@@ -21,7 +21,7 @@ Future<dynamic> languageSelectButtonSheet(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Select Language",
+                    AppString.selectLanguage.tr,
                     style: AppFont.semiBold(fontSize: 16),
                   ),
                   const SizedBox(height: 16),
@@ -33,7 +33,7 @@ Future<dynamic> languageSelectButtonSheet(
                   languageitem(
                       settingController: settingController,
                       language: AppString.km,
-                      title: "🇰🇭 Khmer"),
+                      title: "🇰🇭 ភាសាខ្មែរ"),
                 ],
               ),
             ),

@@ -9,6 +9,8 @@ import 'package:phum_delivery/r.dart';
 import 'package:phum_delivery/widgets/app_cache_network_image_widget.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
+import '../core/constants/app_string.dart';
+
 class AppActionWidget {
   static void rawSnackbar({
     String? title,
@@ -105,71 +107,103 @@ class AppActionWidget {
       String? confirmTitle,
       void Function()? onPressedConfirm,
       bool cancel = true}) {
-    Get.dialog(AlertDialog(
-        actionsPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
-        contentPadding: const EdgeInsets.only(left: 8, right: 8, bottom: 8),
-        titlePadding: const EdgeInsets.all(0),
-        backgroundColor: Get.theme.scaffoldBackgroundColor,
-        content: PopScope(
-          canPop: false,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              const SizedBox(height: 24),
-              Image.asset(
-                iconPath ?? 'assets/images/information-button.png',
-                width: 32,
-                height: 32,
-                color: AppColors.primary,
-              ),
-              const SizedBox(height: 24),
-              Text(
-                textAlign: TextAlign.center,
-                title?.tr ?? "title",
-                style: Get.theme.textTheme.titleMedium!
-                    .copyWith(fontWeight: FontWeight.w500),
-              ),
-              const SizedBox(height: 12),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8),
-                child: Text(
-                  textAlign: TextAlign.center,
-                  message?.tr ?? "message",
-                  style: Get.theme.textTheme.bodyMedium,
-                  // textAlign: TextAlign.center,
-                ),
-              ),
-            ],
-          ),
+    Get.dialog(Dialog(
+      child: Container(
+        padding: const EdgeInsets.all(8),
+        decoration: BoxDecoration(
+          color: AppColors.white,
+          borderRadius: BorderRadius.circular(16),
         ),
-        actions: [
-          OverflowBar(
-            children: [
-              if (cancel)
-                TextButton(
-                  onPressed: () {
-                    Get.back(); // Close the dialog
-                  },
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(mainAxisSize: MainAxisSize.min, children: [
+                // const SizedBox(height: 24),
+                Row(
+                  children: [
+                    SvgPicture.asset(
+                      iconPath ?? SettingSvg.settingLogout,
+                      width: 20,
+                      height: 20,
+                      colorFilter: ColorFilter.mode(
+                        AppColors.primary,
+                        BlendMode.srcIn,
+                      ),
+                    ),
+                    const SizedBox(width: 12),
+                    Text(
+                      textAlign: TextAlign.center,
+                      title?.tr ?? "title",
+                      style: Get.theme.textTheme.titleMedium!
+                          .copyWith(fontWeight: FontWeight.w500),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 12),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8),
                   child: Text(
-                    cancelTitle?.tr ?? 'cancel'.tr,
-                    style: Get.theme.textTheme.bodyMedium!
-                        .copyWith(color: AppColors.primary),
+                    textAlign: TextAlign.center,
+                    message?.tr ?? "message",
+                    style: Get.theme.textTheme.bodyMedium,
+                    // textAlign: TextAlign.center,
                   ),
                 ),
-              if (onPressedConfirm != null)
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.primary),
-                  onPressed: onPressedConfirm,
-                  child: Text(
-                    confirmTitle?.tr ?? 'okay'.tr,
-                    style: Get.theme.textTheme.bodyMedium!
-                        .copyWith(color: Colors.white),
+              ]),
+            ),
+            const SizedBox(height: 12),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Expanded(
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                        padding: EdgeInsets.zero,
+                        backgroundColor: AppColors.white,
+                        shape: RoundedRectangleBorder(
+                            side: BorderSide(
+                                color: AppColors.primary,
+                                style: BorderStyle.solid),
+                            borderRadius: BorderRadius.circular(16))),
+                    onPressed: () {
+                      Get.back();
+                    },
+                    child: Text(
+                      cancelTitle?.tr ?? AppString.cancel.tr,
+                      style: Get.theme.textTheme.bodyMedium!
+                          .copyWith(color: AppColors.primary),
+                    ),
                   ),
                 ),
-            ],
-          ),
-        ]));
+                const SizedBox(width: 12),
+                Expanded(
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                        padding: EdgeInsets.zero,
+                        backgroundColor: AppColors.primary,
+                        shape: RoundedRectangleBorder(
+                            side: BorderSide(
+                                color: AppColors.primary,
+                                style: BorderStyle.solid),
+                            borderRadius: BorderRadius.circular(16))),
+                    onPressed: onPressedConfirm,
+                    child: Text(
+                      confirmTitle?.tr ?? AppString.okay.tr,
+                      style: Get.theme.textTheme.bodyMedium!
+                          .copyWith(color: Colors.white),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    ));
   }
 
   //!handler success and error

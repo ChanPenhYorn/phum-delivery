@@ -8,6 +8,8 @@ import 'package:phum_delivery/views/setting/widgets/build_conntent_item_widget.d
 import 'package:phum_delivery/widgets/app_cache_network_image_widget.dart';
 import 'package:phum_delivery/widgets/app_devider_widget.dart';
 
+import '../../core/constants/app_string.dart';
+
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
 
@@ -74,15 +76,15 @@ class ProfileScreen extends StatelessWidget {
         children: [
           Row(
             children: [
-              Text("Address Info",
+              Text(AppString.addressInfo.tr,
                   style: AppFont.semiBold(
                       fontSize: 16, color: AppColors.ligthBaseNew)),
               const Spacer(),
               TextButton(
                   onPressed: () {},
                   child: Text(
-                    "Edit",
-                    style: AppFont.bold(fontSize: 12, color: AppColors.primary),
+                    AppString.edit.tr,
+                    style: AppFont.bold(fontSize: 14, color: AppColors.primary),
                   ))
             ],
           ),
@@ -96,37 +98,37 @@ class ProfileScreen extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 BuildContentItemWidget(
-                  title: "City/Province",
+                  title: AppString.province.tr,
                   value: homeController.userModel.value?.address.province ?? "",
                   icon: SettingSvg.province,
                 ),
                 AppDeviderWidget(),
                 BuildContentItemWidget(
-                  title: "District/Khan",
+                  title: AppString.district.tr,
                   value: homeController.userModel.value?.address.district ?? "",
                   icon: SettingSvg.district,
                 ),
                 AppDeviderWidget(),
                 BuildContentItemWidget(
-                  title: "Commune/Khan",
+                  title: AppString.commune.tr,
                   value: homeController.userModel.value?.address.commune ?? "",
                   icon: SettingSvg.commune,
                 ),
                 AppDeviderWidget(),
                 BuildContentItemWidget(
-                  title: "Village",
+                  title: AppString.village.tr,
                   value: homeController.userModel.value?.address.village ?? "",
                   icon: SettingSvg.village,
                 ),
                 AppDeviderWidget(),
                 BuildContentItemWidget(
-                  title: "House No.",
+                  title: AppString.houseNo.tr,
                   value: homeController.userModel.value?.address.house ?? "",
                   icon: SettingSvg.house,
                 ),
                 AppDeviderWidget(),
                 BuildContentItemWidget(
-                  title: "Street No",
+                  title: AppString.streetNo.tr,
                   value: homeController.userModel.value?.address.street ?? "",
                   icon: SettingSvg.street,
                 ),
@@ -147,7 +149,7 @@ class ProfileScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
-          Text("Personal Info",
+          Text(AppString.personalInfo.tr,
               style: AppFont.semiBold(
                   fontSize: 16, color: AppColors.ligthBaseNew)),
           const SizedBox(height: 8),
@@ -160,31 +162,31 @@ class ProfileScreen extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 BuildContentItemWidget(
-                  title: "First Name",
+                  title: AppString.firstName.tr,
                   value: homeController.userModel.value?.firstName ?? "",
                   icon: SettingSvg.settingProfile,
                 ),
                 AppDeviderWidget(),
                 BuildContentItemWidget(
-                  title: "Last Name",
+                  title: AppString.lastName.tr,
                   value: homeController.userModel.value?.lastName ?? "",
                   icon: SettingSvg.settingProfile,
                 ),
                 AppDeviderWidget(),
                 BuildContentItemWidget(
-                  title: "Date of Birth",
+                  title: AppString.dateOfBirth.tr,
                   value: homeController.userModel.value?.dateOfBirth ?? "",
                   icon: SettingSvg.date,
                 ),
                 AppDeviderWidget(),
                 BuildContentItemWidget(
-                  title: "Email",
+                  title: AppString.email.tr,
                   value: homeController.userModel.value?.email ?? "",
                   icon: SettingSvg.email,
                 ),
                 AppDeviderWidget(),
                 BuildContentItemWidget(
-                  title: "Phone",
+                  title: AppString.phoneNumber.tr,
                   value: homeController.userModel.value?.phone ?? "",
                   icon: SettingSvg.phone,
                 ),

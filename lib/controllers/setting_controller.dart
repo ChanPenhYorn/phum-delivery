@@ -11,19 +11,19 @@ class SettingController extends GetxController {
   final List<Map<String, dynamic>> settingList = [
     {
       "icon": SettingSvg.settingProfile,
-      "title": "Profile",
+      "title": AppString.profile,
     },
     {
       "icon": SettingSvg.settingLanguage,
-      "title": "Language",
+      "title": AppString.language,
     },
     {
       "icon": SettingSvg.settingNotification,
-      "title": "Notification",
+      "title": AppString.notification,
     },
   ];
 
-  final RxBool notification = false.obs;
+  final RxBool notification = true.obs;
   final RxString language = "km".obs;
 
   @override
@@ -34,6 +34,13 @@ class SettingController extends GetxController {
 
   void onNotificationToggle() {
     notification.value = !notification.value;
+    appStorageService.saveNotification(notification.value);
+
+    if (notification.value) {
+      Logger.log("Notification is enabled");
+    } else {
+      Logger.log("Notification is disabled");
+    }
   }
 
   Future<void> onLanguageToggle(String language) async {
@@ -53,6 +60,8 @@ class SettingController extends GetxController {
   void init() async {
     language.value = appStorageService.getLanguage();
     await onLanguageToggle(language.value);
+
+    notification.value = appStorageService.getNotification();
   }
 
   // @override

@@ -139,7 +139,7 @@ class HomeScreen extends StatelessWidget {
                         style: AppFont.semiBold(fontSize: 24)),
                     AppButtonWidget(
                       backgroundColor: AppColors.basePrimary,
-                      label: "History",
+                      label: AppString.history.tr,
                       onPressed: () {},
                       textColor: AppColors.primary,
                       icon: Icons.history,

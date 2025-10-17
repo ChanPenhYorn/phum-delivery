@@ -8,6 +8,7 @@ import 'package:phum_delivery/core/utils/enum/app_textformfield_enum.dart';
 import 'package:phum_delivery/routes/app_route.dart';
 import 'package:phum_delivery/widgets/app_button_widget.dart';
 
+import '../../../core/constants/app_string.dart';
 import '../../../widgets/app_textformfield_widget.dart';
 
 class ForgetPasswordScreen extends StatelessWidget {
@@ -34,9 +35,10 @@ class ForgetPasswordScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 // SizedBox(height: 24),
-                Text("Forget Password", style: AppFont.semiBold(fontSize: 36)),
+                Text(AppString.forgotPassword.tr,
+                    style: AppFont.semiBold(fontSize: 36)),
                 SizedBox(height: 16),
-                Text("Email or Phone Number",
+                Text(AppString.emailOrPhone.tr,
                     style: AppFont.regular(fontSize: 16)),
                 SizedBox(height: 8),
                 Obx(() => AppTextformfieldWidget(
@@ -44,7 +46,7 @@ class ForgetPasswordScreen extends StatelessWidget {
                       type: emailController.text.startsWith(RegExp(r'^[0-9]'))
                           ? AppTextformfieldEnum.phone
                           : AppTextformfieldEnum.email,
-                      hintText: "Enter your email or phone number",
+                      hintText: AppString.emailOrPhone.tr,
                       suffixIcon: authController.isShowClearIcon.value
                           ? Icon(Icons.cancel)
                           : null,
@@ -61,7 +63,7 @@ class ForgetPasswordScreen extends StatelessWidget {
                 AppButtonWidget(
                   borderRadius: 30,
                   isExpanded: true,
-                  label: "Continue",
+                  label: AppString.continueButton.tr,
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
                       // authController.forgetPassword(emailController.text);

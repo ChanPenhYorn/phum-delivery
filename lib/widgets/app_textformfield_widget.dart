@@ -151,24 +151,24 @@ class AppTextformfieldWidget extends StatelessWidget {
     switch (type) {
       case AppTextformfieldEnum.email:
         if (!AppReqex().emailRegex.hasMatch(value)) {
-          return 'Invalid email format'; // Correct spelling and clearer message
+          return AppString.invalidEmailFormat.tr;
         }
         break;
       case AppTextformfieldEnum.name:
         if (!AppReqex().englishNameRegexp.hasMatch(value)) {
-          return 'Name should contain English characters only'; // Improved message for clarity
+          return AppString.nameShouldContainEnglishCharactersOnly.tr;
         }
         break;
       case AppTextformfieldEnum
             .password: // Corrected the typo from 'passwoord' to 'password'
         if (!AppReqex().passwordRegexp.hasMatch(value)) {
           // return 'message.password_at_least'.tr; // Improved message
-          return 'Password must be at least 6 characters long'; // Improved message
+          return AppString.passwordMustBeAtLeast6CharactersLong.tr;
         }
         break;
       case AppTextformfieldEnum.phone:
         if (!AppReqex().khmerPhoneRegexp.hasMatch(value)) {
-          return 'Invalid phone number format'; // Improved message
+          return AppString.invalidPhoneNumberFormat.tr;
         }
       default:
         break; // Default case, no validation
