@@ -10,4 +10,5 @@ class AppRoutes {
   static const pickupProcessing = '/pickup-processing';
   static const history = '/history';
   static const historySearch = '/history-search';
+  static const searchPickup = '/search-pickup';
 }

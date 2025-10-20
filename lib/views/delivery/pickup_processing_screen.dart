@@ -26,7 +26,7 @@ class PickupProcessingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final pickupController = Get.find<ProcessingController>();
+    final pickupController = Get.find<PickupProcessingController>();
 
     return Scaffold(
         backgroundColor: AppColors.lightGray,

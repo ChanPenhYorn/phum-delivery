@@ -10,9 +10,11 @@ class DeliveryItemWidget extends StatelessWidget {
     super.key,
     required this.item,
     required this.onTap,
+    this.isShowStatus = true,
   });
   final DeliveryItemEntity item;
   final Function() onTap;
+  final bool isShowStatus;
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +52,7 @@ class DeliveryItemWidget extends StatelessWidget {
       trailing: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          if (item.status == "new")
+          if (isShowStatus && item.status == "new")
             Container(
               margin: const EdgeInsets.only(right: 4),
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),

@@ -10,6 +10,7 @@ import 'package:phum_delivery/views/auth/login_screen.dart';
 import 'package:phum_delivery/views/auth/reset-password/create_new_password.dart';
 import 'package:phum_delivery/views/auth/reset-password/forget_password_screen.dart';
 import 'package:phum_delivery/views/auth/reset-password/otp_screen.dart';
+import 'package:phum_delivery/views/delivery/search_pickup_screen.dart';
 import 'package:phum_delivery/views/home/home_screen.dart';
 import 'package:phum_delivery/views/setting/profile_screen.dart';
 import 'package:phum_delivery/views/setting/setting_screen.dart';
@@ -67,6 +68,11 @@ class AppPages {
     GetPage(
       name: AppRoutes.pickupProcessing,
       page: () => PickupProcessingScreen(),
+      binding: PickupBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.searchPickup,
+      page: () => SearchPickupScreen(),
       binding: PickupBinding(),
     ),
 

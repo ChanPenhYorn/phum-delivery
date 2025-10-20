@@ -1,8 +1,11 @@
 import 'package:phum_delivery/core/services/api/api_service.dart';
+import 'package:phum_delivery/data/models/delivery_item_model.dart';
 import 'package:phum_delivery/data/models/pickup_processing/confirm_model.dart';
 import 'package:phum_delivery/data/models/pickup_processing/delivery_model.dart';
 import 'package:phum_delivery/data/models/pickup_processing/pickup_detail_model.dart';
 import 'package:phum_delivery/data/models/pickup_processing/pickup_model.dart';
+
+import '../../domain/entities/delivery_item_entity.dart';
 
 class PickupRemoteDs {
   final ApiClient client;
@@ -56,5 +59,89 @@ class PickupRemoteDs {
     );
 
     return data;
+  }
+
+  Future<List<DeliveryItemEntity>> searchPickup(String token) async {
+    // final response = await client.get('/pickups', headers: {
+    //   'Authorization': 'Bearer $token',
+    // });
+
+    final List<Map<String, dynamic>> items = [
+      {
+        "id": 1,
+        "name": "Item 1",
+        "description": "Description 1",
+        "image": "assets/svg/default_delivery.svg",
+        "total": 10,
+        "status": "new",
+        "createdAt": "2025-10-14",
+      },
+      {
+        "id": 2,
+        "name": "Item 2",
+        "description": "Description 2",
+        "image": "assets/svg/default_delivery.svg",
+        "total": 20,
+        "status": "old",
+        "createdAt": "2025-01-01",
+      },
+      {
+        "id": 3,
+        "name": "Item 3",
+        "description": "Description 3",
+        "image": "assets/svg/default_delivery.svg",
+        "total": 30,
+        "status": "new",
+        "createdAt": "2025-01-01",
+      },
+      {
+        "id": 3,
+        "name": "Item 3",
+        "description": "Description 3",
+        "image": "assets/svg/default_delivery.svg",
+        "total": 30,
+        "status": "new",
+        "createdAt": "2025-01-01",
+      },
+      {
+        "id": 3,
+        "name": "Item 3",
+        "description": "Description 3",
+        "image": "assets/svg/default_delivery.svg",
+        "total": 30,
+        "status": "new",
+        "createdAt": "2025-01-01",
+      },
+      {
+        "id": 3,
+        "name": "Item 3",
+        "description": "Description 3",
+        "image": "assets/svg/default_delivery.svg",
+        "total": 30,
+        "status": "new",
+        "createdAt": "2025-01-01",
+      },
+      {
+        "id": 3,
+        "name": "Item 3",
+        "description": "Description 3",
+        "image": "assets/svg/default_delivery.svg",
+        "total": 30,
+        "status": "new",
+        "createdAt": "2025-01-01",
+      },
+      {
+        "id": 3,
+        "name": "Item 3",
+        "description": "Description 3",
+        "image": "assets/svg/default_delivery.svg",
+        "total": 30,
+        "status": "new",
+        "createdAt": "2025-01-01",
+      },
+    ];
+
+    // final data = PickupModel.fromJson(response).;
+    return items.map((e) => DeliveryItemModel.fromJson(e)).toList();
   }
 }

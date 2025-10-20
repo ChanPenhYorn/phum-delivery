@@ -166,12 +166,18 @@ class HomeScreen extends StatelessWidget {
               ),
               child: Column(
                 children: [
-                  AppTextformfieldWidget(
-                    prefixIcon: const Icon(Icons.search),
-                    hintText: "Search",
-                    controller: searchController,
-                    isRequried: false,
-                    borderRadius: BorderRadius.circular(30),
+                  GestureDetector(
+                    onTap: () {
+                      Get.toNamed(AppRoutes.searchPickup);
+                    },
+                    child: AppTextformfieldWidget(
+                      prefixIcon: const Icon(Icons.search),
+                      hintText: "Search",
+                      controller: searchController,
+                      isRequried: false,
+                      isEnable: false,
+                      borderRadius: BorderRadius.circular(30),
+                    ),
                   ),
                   const SizedBox(height: 16),
                   Expanded(

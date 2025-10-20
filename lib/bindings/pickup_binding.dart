@@ -13,6 +13,6 @@ class PickupBinding extends Bindings {
     Get.lazyPut(() => PickupRemoteDs(Get.find<ApiClient>()));
     Get.lazyPut(() => PickupRepositoryImpl(Get.find<PickupRemoteDs>()));
     Get.lazyPut(() => PickupUseCase(Get.find<PickupRepositoryImpl>()));
-    Get.lazyPut(() => ProcessingController(Get.find<PickupUseCase>()));
+    Get.lazyPut(() => PickupProcessingController(Get.find<PickupUseCase>()));
   }
 }

@@ -6,6 +6,7 @@ import 'package:phum_delivery/core/extension/space_extension.dart';
 import 'package:phum_delivery/core/utils/app_colors.dart';
 import 'package:phum_delivery/core/utils/app_font.dart';
 import 'package:phum_delivery/r.dart';
+import 'package:phum_delivery/widgets/app_action_widget.dart';
 import 'package:phum_delivery/widgets/app_textformfield_widget.dart';
 import '../../controllers/history_controller.dart';
 import 'widgets/delivery_history_item_widget.dart';
@@ -66,8 +67,14 @@ class HistorySearchScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(30)),
                 child: Obx(() {
                   if (historyController.historyItemsList.value.isEmpty) {
-                    return Center(
-                      child: Text("No history items"),
+                    return SizedBox(
+                      height: 300,
+                      child: Center(
+                          child: AppActionWidget.noData(
+                              title: "Not Found",
+                              message:
+                                  "The code you entered cannot be found, please check the code again or search with another code.",
+                              icon: AssetLocales.folder)),
                     );
                   }
                   return Column(
