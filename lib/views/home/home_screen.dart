@@ -172,7 +172,7 @@ class HomeScreen extends StatelessWidget {
                     },
                     child: AppTextformfieldWidget(
                       prefixIcon: const Icon(Icons.search),
-                      hintText: "Search",
+                      hintText: AppString.search.tr,
                       controller: searchController,
                       isRequried: false,
                       isEnable: false,

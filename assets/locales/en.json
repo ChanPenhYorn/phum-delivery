@@ -9,6 +9,10 @@
   "confirm": "Confirm",
   "reject": "Reject",
   "okay": "Okay",
+  "search": "Search",
+  "items": "Item",
+  "goto_pickup_at": "Go to Pickup At",
+  "new": "New",
 
 
   "login_title": "Login to your Account",
@@ -84,5 +88,6 @@
 
   "search_history": "Search History",
   "all": "All",
-  "canceled": "Canceled"
+  "canceled": "Canceled",
+  "result_for": "Result for "
 }

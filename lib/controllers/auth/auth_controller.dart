@@ -55,7 +55,7 @@ class AuthController extends GetxController {
 
   Future<void> login(String email, String password) async {
     isLoading.value = true;
-    user.value = await loginUseCase.login(email, password);
+    // user.value = await loginUseCase.login(email, password);
     isLoading.value = false;
   }
 

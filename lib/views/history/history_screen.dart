@@ -11,7 +11,9 @@ import 'package:phum_delivery/r.dart';
 import 'package:phum_delivery/routes/app_route.dart';
 import 'package:phum_delivery/views/history/widgets/shimmer/history_item_shimmer.dart';
 import 'package:phum_delivery/widgets/app_action_widget.dart';
+
 import '../../controllers/history_controller.dart';
+
 import 'widgets/delivery_history_item_widget.dart';
 
 class HistoryScreen extends StatelessWidget {
@@ -84,7 +86,7 @@ class HistoryScreen extends StatelessWidget {
                     ],
                   ),
                   duration: const Duration(milliseconds: 300),
-                  curve: Curves.easeInToLinear,
+                  // curve: Curves.easeInToLinear,
                   onValueChanged: (v) {
                     AppBouncer(milliseconds: 300).run(() {
                       historyController.selectSegment(v);

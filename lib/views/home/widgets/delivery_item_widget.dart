@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import 'package:phum_delivery/core/constants/app_string.dart';
 import 'package:phum_delivery/core/utils/app_colors.dart';
 import 'package:phum_delivery/core/utils/app_font.dart';
 import 'package:phum_delivery/domain/entities/delivery_item_entity.dart';
@@ -25,7 +27,7 @@ class DeliveryItemWidget extends StatelessWidget {
       subtitle: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text("${item.total} items",
+          Text("${item.total} ${AppString.items.tr}",
               style:
                   AppFont.regular(fontSize: 14, color: AppColors.ligthBaseNew)),
           GestureDetector(
@@ -34,12 +36,12 @@ class DeliveryItemWidget extends StatelessWidget {
               text: TextSpan(
                 children: [
                   TextSpan(
-                    text: "Go to pickup at ",
+                    text: AppString.gotoPickupAt.tr,
                     style: AppFont.regular(
                         fontSize: 14, color: AppColors.ligthBaseNew),
                   ),
                   TextSpan(
-                    text: "WS-TTP",
+                    text: " WS-TTP",
                     style: AppFont.semiBold(
                         fontSize: 14, color: AppColors.primary),
                   ),
@@ -61,9 +63,9 @@ class DeliveryItemWidget extends StatelessWidget {
                 borderRadius: BorderRadius.circular(30),
               ),
               child: Text(
-                "New",
+                AppString.newStatus.tr,
                 style: AppFont.semiBold(
-                    fontSize: 12, color: AppColors.baseSecondary),
+                    fontSize: 14, color: AppColors.baseSecondary),
               ),
             ),
           SvgPicture.asset(AssetSvg.arrowTop, width: 20, height: 20),

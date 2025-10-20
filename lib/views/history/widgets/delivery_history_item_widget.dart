@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import 'package:phum_delivery/core/constants/app_string.dart';
 import 'package:phum_delivery/core/utils/app_colors.dart';
 import 'package:phum_delivery/core/utils/app_font.dart';
 import 'package:phum_delivery/core/utils/app_formatter.dart';
@@ -48,7 +50,7 @@ class DeliveryHistoryItemWidget extends StatelessWidget {
       subtitle: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text("${item.total} items",
+          Text("${item.total} ${AppString.items.tr}",
               style: AppFont.regular(fontSize: 16, color: AppColors.black)),
           Text(AppFormatter.formatDateTime(item.createdAt),
               style:

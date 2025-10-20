@@ -6,6 +6,10 @@ class AppString {
   static const String confirm = "confirm";
   static const String reject = "reject";
   static const String okay = "okay";
+  static const String search = "search";
+  static const String items = "items";
+  static const String gotoPickupAt = "goto_pickup_at";
+  static const String newStatus = "new";
 
   //! Home String
   static const String deliveryPickup = "delivery_pickup";
@@ -96,4 +100,5 @@ class AppString {
   static const String searchHistory = "search_history";
   static const String all = "all";
   static const String canceled = "canceled";
+  static const String resultFor = "result_for";
 }

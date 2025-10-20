@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:phum_delivery/core/extension/space_extension.dart';
+import 'package:phum_delivery/core/constants/app_string.dart';
 import 'package:phum_delivery/views/delivery/widgets/shimmer/seach_pickup_shimmer.dart';
 import 'package:phum_delivery/views/home/widgets/delivery_item_widget.dart';
-
 import '../../controllers/pickup_processing/processing_controller.dart';
 import '../../core/utils/app_font.dart';
 import '../../r.dart';
@@ -30,7 +29,7 @@ class _SearchPickupScreenState extends State<SearchPickupScreen> {
           child: AppTextformfieldWidget(
             controller: searchController,
             borderRadius: BorderRadius.circular(16),
-            hintText: "Search",
+            hintText: AppString.search.tr,
             suffixIcon: Icon(Icons.cancel),
             suffixOnTap: () {
               searchController.text = "";
@@ -61,47 +60,45 @@ class _SearchPickupScreenState extends State<SearchPickupScreen> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            16.height,
             Container(
-              margin: const EdgeInsets.symmetric(horizontal: 16),
-              child: Text("Result for “${searchController.text}”",
+              margin: const EdgeInsets.symmetric(
+                horizontal: 16,
+                vertical: 16,
+              ),
+              child: Text(
+                  "${AppString.resultFor.tr} “${searchController.text}”",
                   style: AppFont.semiBold(fontSize: 16)),
             ),
             Expanded(
-              child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 0, vertical: 16),
-                child: ListView.builder(
-                  itemCount: pickupController.searchPickupModel.value.length,
-                  itemBuilder: (context, index) {
-                    return Container(
-                      padding: const EdgeInsets.only(bottom: 8.0),
-                      child: Container(
-                        margin: const EdgeInsets.symmetric(horizontal: 16),
-                        padding: const EdgeInsets.symmetric(
-                          vertical: 8,
-                        ),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(16),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withValues(alpha: 0.2),
-                              spreadRadius: 3,
-                              blurRadius: 7,
-                              offset: Offset(0, 5),
-                            ),
-                          ],
-                        ),
-                        child: DeliveryItemWidget(
-                            item:
-                                pickupController.searchPickupModel.value[index],
-                            onTap: () {},
-                            isShowStatus: false),
+              child: ListView.builder(
+                itemCount: pickupController.searchPickupModel.value.length,
+                itemBuilder: (context, index) {
+                  return Container(
+                    padding: const EdgeInsets.only(bottom: 8.0),
+                    child: Container(
+                      margin: const EdgeInsets.symmetric(horizontal: 16),
+                      padding: const EdgeInsets.only(
+                        top: 8,
                       ),
-                    );
-                  },
-                ),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(16),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withValues(alpha: 0.2),
+                            spreadRadius: 3,
+                            blurRadius: 7,
+                            offset: Offset(0, 5),
+                          ),
+                        ],
+                      ),
+                      child: DeliveryItemWidget(
+                          item: pickupController.searchPickupModel.value[index],
+                          onTap: () {},
+                          isShowStatus: false),
+                    ),
+                  );
+                },
               ),
             ),
           ],
