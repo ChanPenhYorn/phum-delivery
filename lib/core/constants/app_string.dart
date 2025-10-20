@@ -76,4 +76,24 @@ class AppString {
   static const String village = "village";
   static const String houseNo = "house_no";
   static const String streetNo = "street_no";
+
+  //! delivery processing
+  static const String takeYourPickupAt = "take_your_pickup_at";
+  static const String minEstimate = "min_estimate";
+  static const String fromYourLocation = "from_your_location";
+  static const String pickupDetail = "pickup_detail";
+  static const String quantity = "quantity";
+  static const String uom = "uom";
+  static const String remark = "remark";
+  static const String finalConfirmation = "final_confirmation";
+  static const String issueBy = "issue_by";
+  static const String deliveryBy = "delivery_by";
+  static const String confirmDate = "confirm_date";
+  static const String phone = "phone";
+  static const String approveBy = "approve_by";
+
+  //! history
+  static const String searchHistory = "search_history";
+  static const String all = "all";
+  static const String canceled = "canceled";
 }

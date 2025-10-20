@@ -1,5 +1,6 @@
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:phum_delivery/bindings/auth_binding.dart';
+import 'package:phum_delivery/bindings/history_binding.dart';
 import 'package:phum_delivery/bindings/home_binding.dart';
 import 'package:phum_delivery/bindings/pickup_binding.dart';
 
@@ -13,7 +14,10 @@ import 'package:phum_delivery/views/home/home_screen.dart';
 import 'package:phum_delivery/views/setting/profile_screen.dart';
 import 'package:phum_delivery/views/setting/setting_screen.dart';
 import 'package:phum_delivery/views/splash/splash_screen.dart';
-import 'package:phum_delivery/views/delivery/pickup_processing.dart';
+import 'package:phum_delivery/views/history/history_screen.dart';
+
+import '../views/delivery/pickup_processing_screen.dart';
+import '../views/history/history_search_screen.dart';
 
 class AppPages {
   static List<GetPage> routes = [
@@ -62,8 +66,20 @@ class AppPages {
     //! delivery
     GetPage(
       name: AppRoutes.pickupProcessing,
-      page: () => PickupProcessing(),
+      page: () => PickupProcessingScreen(),
       binding: PickupBinding(),
+    ),
+
+    //! history
+    GetPage(
+      name: AppRoutes.history,
+      page: () => HistoryScreen(),
+      binding: HistoryBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.historySearch,
+      page: () => HistorySearchScreen(),
+      binding: HistoryBinding(),
     ),
   ];
 }

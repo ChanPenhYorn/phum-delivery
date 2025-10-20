@@ -8,6 +8,7 @@ class AppColors {
   static final Color baseSecondary = HexColor('#027A48');
   static final Color lightBaseSecondary = HexColor('#ECFDF3');
   static final Color ligthBaseNew = HexColor('#475467');
+  static final Color red = Colors.red;
 
   ///
   static final Color primary = HexColor('#CA1043');

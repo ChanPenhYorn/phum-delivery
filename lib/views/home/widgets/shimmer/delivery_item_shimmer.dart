@@ -15,6 +15,7 @@ class DeliveryItemShimmer extends StatelessWidget {
         highlightColor: Colors.grey.shade100,
         enabled: true,
         child: ListTile(
+          titleAlignment: ListTileTitleAlignment.top,
           leading: ClipOval(child: CircleAvatar()),
           title: ShimmerItemWidget(
             width: 100,

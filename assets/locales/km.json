@@ -63,6 +63,24 @@
   "commune": "ឃុំ/សង្កាត់",
   "vilage": "ភូមិ", 
   "house_no": "ផ្ទះលេខ", 
-  "street_no": "ផ្លូវលេខ"
+  "street_no": "ផ្លូវលេខ",
+
+  "take_your_pickup_at": "ទៅយករបស់អ្នកនៅ", 
+  "min_estimate": "ការប៉ាន់ស្មានអប្បបរមា", 
+  "from_your_location": "ពីទីតាំងរបស់អ្នក", 
+  "pickup_detail": "ព័ត៌មានលម្អិតការទទួល", 
+  "quantity": "បរិមាណ", 
+  "uom": "ឯកតា", 
+  "remark": "ចំណាំ", 
+  "final_confirmation": "ការបញ្ជាក់ចុងក្រោយ", 
+  "issue_by": "បញ្ហា​ដោយ",
+  "delivery_by": "ដឹកជញ្ជូនដោយ", 
+  "confirm_date": "បញ្ជាក់កាលបរិច្ឆេទ", 
+  "phone": "ទូរស័ព្ទ",
+  "approve_by": "អនុមត្រដោយ",
+  
+  "search_history": "ប្រវត្តិស្វែងរក", 
+  "all": "ទាំងអស់", 
+  "canceled": "បោះបង់"
 
 }

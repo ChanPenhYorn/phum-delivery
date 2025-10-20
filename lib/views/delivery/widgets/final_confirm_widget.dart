@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:intl/intl.dart';
+import 'package:get/get.dart';
+import 'package:phum_delivery/core/constants/app_string.dart';
 import 'package:phum_delivery/core/utils/app_colors.dart';
 import 'package:phum_delivery/core/utils/app_font.dart';
+import 'package:phum_delivery/core/utils/app_formatter.dart';
 import 'package:phum_delivery/domain/entities/pickup_processing/confirm_entity.dart';
 import 'package:phum_delivery/r.dart';
 import 'package:phum_delivery/widgets/app_devider_widget.dart';
@@ -19,7 +21,7 @@ class FinalConfirmWidget extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.only(left: 16),
-          child: Text('Final Confirmation',
+          child: Text(AppString.finalConfirmation.tr,
               style: AppFont.semiBold(
                   fontSize: 16, color: AppColors.ligthBaseNew)),
         ),
@@ -31,17 +33,17 @@ class FinalConfirmWidget extends StatelessWidget {
             child: Column(
               children: [
                 buldConfirmItem(
-                    title: 'Approve by:',
+                    title: AppString.approveBy.tr,
                     value: confirm.approveBy,
                     imageUrl: AssetLocales.airCondition),
                 SizedBox(height: 16),
                 buldConfirmItem(
-                    title: 'Issue by:',
+                    title: AppString.issueBy.tr,
                     value: confirm.issueBy,
                     imageUrl: AssetLocales.airCondition),
                 SizedBox(height: 16),
                 buldConfirmItem(
-                    title: 'Delivery by:',
+                    title: AppString.deliveryBy.tr,
                     value: confirm.deliveryBy,
                     imageUrl: AssetLocales.airCondition),
                 const SizedBox(height: 16),
@@ -51,12 +53,12 @@ class FinalConfirmWidget extends StatelessWidget {
                 ),
                 SizedBox(height: 16),
                 buldConfirmItem(
-                    title: 'Confirm Date:',
+                    title: AppString.confirmDate.tr,
                     value: confirm.confirmDate,
                     imageUrl: AssetLocales.airCondition),
                 SizedBox(height: 16),
                 buldConfirmItem(
-                    title: 'Phone:',
+                    title: AppString.phone.tr,
                     value: confirm.phone,
                     imageUrl: AssetLocales.airCondition),
               ],
@@ -99,11 +101,11 @@ Row buldConfirmItem(
       Text(title,
           style: AppFont.semiBold(fontSize: 16, color: AppColors.ligthBaseNew)),
       const SizedBox(width: 8),
-      title == 'Confirm Date:'
-          ? Text(DateFormat('dd MMM yyyy, HH:mm a').format(DateTime.now()),
+      title == AppString.confirmDate.tr
+          ? Text(AppFormatter.formatDateTime(value),
               style:
                   AppFont.semiBold(fontSize: 14, color: AppColors.ligthBaseNew))
-          : title == 'Phone:'
+          : title == AppString.phone.tr
               ? buildContact(phone: value)
               : Container(
                   padding:

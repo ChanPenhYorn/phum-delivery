@@ -8,4 +8,6 @@ class AppRoutes {
   static const setting = '/setting';
   static const personal = '/personal';
   static const pickupProcessing = '/pickup-processing';
+  static const history = '/history';
+  static const historySearch = '/history-search';
 }

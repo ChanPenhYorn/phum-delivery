@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:phum_delivery/core/constants/app_string.dart';
 import 'package:phum_delivery/domain/entities/pickup_processing/pickup_entity.dart';
 import 'package:phum_delivery/r.dart';
 import 'package:dotted_line/dotted_line.dart';
@@ -23,7 +25,7 @@ class PickupCardWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Take your pickup at: ',
+            Text(AppString.takeYourPickupAt.tr,
                 style: AppFont.medium(
                     fontSize: 14, color: AppColors.ligthBaseNew)),
             const SizedBox(height: 8),
@@ -94,7 +96,7 @@ class PickupCardWidget extends StatelessWidget {
                         AppFont.semiBold(fontSize: 16, color: AppColors.black)),
                 const Spacer(),
                 Text(
-                    '${DateFormat('mm').format(DateTime.parse(pickup.date))} mins (esitimated)',
+                    '${DateFormat('mm').format(DateTime.parse(pickup.date))} ${AppString.minEstimate.tr}',
                     style: AppFont.regular(
                         fontSize: 14, color: AppColors.ligthBaseNew)),
               ],
@@ -112,7 +114,7 @@ class PickupCardWidget extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(width: 8),
-                Text('${pickup.distance} from your location',
+                Text('${pickup.distance} ${AppString.fromYourLocation.tr}',
                     style: AppFont.regular(
                         fontSize: 14, color: AppColors.ligthBaseNew)),
               ],

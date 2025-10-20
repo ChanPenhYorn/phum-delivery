@@ -81,7 +81,7 @@ class AppActionWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Image.asset(
-              icon ?? AssetSvg.motoDelivery,
+              icon ?? AssetLocales.folder,
             ),
             Text(
               title ?? "No Data Available",

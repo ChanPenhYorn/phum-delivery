@@ -2,6 +2,7 @@ class AssetLocales {
   static const String en = 'assets/locales/en.json';
   static const String km = 'assets/locales/km.json';
   static const String airCondition = 'assets/images/air_conditon.png';
+  static const String folder = 'assets/images/folder.png';
 }
 
 class AssetSvg {
@@ -38,6 +39,7 @@ class AssetSvg {
   static const String location = 'assets/svg/location.svg';
   static const String person = "assets/svg/person.svg";
   static const String phone = "assets/svg/phone.svg";
+  static const String filters = "assets/svg/filters.svg";
 }
 
 class SettingSvg {

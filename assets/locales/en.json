@@ -66,5 +66,23 @@
   "commune": "Commune/Sangkat",
   "village": "Village",
   "house_no": "House No",
-  "street_no": "Street No"
+  "street_no": "Street No",
+
+  "take_your_pickup_at": "Take Your Pickup At",
+  "min_estimate": "Min Estimate",
+  "from_your_location": "From Your Location",
+  "pickup_detail": "Pickup Detail",
+  "quantity": "Quantity",
+  "uom": "UOM",
+  "remark": "Remark",
+  "final_confirmation": "Final Confirmation",
+  "issue_by": "Issue By",
+  "delivery_by": "Delivery By",
+  "confirm_date": "Confirm Date",
+  "phone": "Phone",
+  "approve_by": "Approve By",
+
+  "search_history": "Search History",
+  "all": "All",
+  "canceled": "Canceled"
 }

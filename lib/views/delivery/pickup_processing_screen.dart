@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 import 'package:phum_delivery/controllers/pickup_processing/processing_controller.dart';
+import 'package:phum_delivery/core/constants/app_string.dart';
 import 'package:phum_delivery/core/extension/space_extension.dart';
 import 'package:phum_delivery/core/utils/app_colors.dart';
 import 'package:phum_delivery/core/utils/app_font.dart';
@@ -20,8 +21,8 @@ import 'package:phum_delivery/widgets/shimmer/shimmer_item_widget.dart'
     show ShimmerItemWidget;
 import 'widgets/pickup_card_widget.dart';
 
-class PickupProcessing extends StatelessWidget {
-  const PickupProcessing({super.key});
+class PickupProcessingScreen extends StatelessWidget {
+  const PickupProcessingScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -196,7 +197,7 @@ class PickupProcessing extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Expanded(
-                  child: Text('Pickup details',
+                  child: Text(AppString.pickupDetail.tr,
                       style: AppFont.semiBold(
                           fontSize: 16, color: AppColors.black),
                       overflow: TextOverflow.ellipsis,
@@ -238,7 +239,7 @@ class PickupProcessing extends StatelessWidget {
               endIndent: 0,
             ),
             const SizedBox(height: 8),
-            Text('Remark',
+            Text(AppString.remark.tr,
                 style: AppFont.regular(
                     fontSize: 14, color: AppColors.ligthBaseNew)),
             Text(pickupDetail.remark,
@@ -301,9 +302,10 @@ class PickupProcessing extends StatelessWidget {
                 endIndent: 0,
               ),
               const SizedBox(height: 8),
-              buildProductItem(label: 'Quantity', value: productQuantity),
+              buildProductItem(
+                  label: AppString.quantity.tr, value: productQuantity),
               const SizedBox(height: 8),
-              buildProductItem(label: 'UoM', value: productUom),
+              buildProductItem(label: AppString.uom.tr, value: productUom),
             ],
           ),
         ),
