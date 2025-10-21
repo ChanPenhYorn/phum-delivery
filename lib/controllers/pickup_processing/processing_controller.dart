@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:phum_delivery/domain/entities/delivery_item_entity.dart';
 import 'package:phum_delivery/domain/entities/pickup_processing/pickup_entity.dart';
@@ -15,11 +16,17 @@ class PickupProcessingController extends GetxController {
     searchPickup('1');
   }
 
+  final FocusNode focusNode = FocusNode();
+
   Rx<PickupEntity?> pickupModel = Rx<PickupEntity?>(null);
   Rx<List<DeliveryItemEntity>> searchPickupModel =
       Rx<List<DeliveryItemEntity>>([]);
   RxBool isLoading = RxBool(false);
   RxBool isLoadingSearch = RxBool(false);
+
+  void requestFocus(BuildContext context) {
+    FocusScope.of(context).requestFocus(focusNode);
+  }
 
   Future<void> getPickup(String pickupId) async {
     isLoading.value = true;

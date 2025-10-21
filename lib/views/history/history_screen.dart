@@ -3,7 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:phum_delivery/core/constants/app_string.dart';
 import 'package:phum_delivery/core/extension/space_extension.dart';
-import 'package:phum_delivery/core/utils/app_bouncer.dart';
+import 'package:phum_delivery/core/utils/app_debouncer.dart';
 import 'package:phum_delivery/core/utils/app_colors.dart';
 import 'package:custom_sliding_segmented_control/custom_sliding_segmented_control.dart';
 import 'package:phum_delivery/core/utils/app_font.dart';
@@ -88,7 +88,7 @@ class HistoryScreen extends StatelessWidget {
                   duration: const Duration(milliseconds: 300),
                   // curve: Curves.easeInToLinear,
                   onValueChanged: (v) {
-                    AppBouncer(milliseconds: 300).run(() {
+                    AppDebouncer(milliseconds: 300).run(() {
                       historyController.selectSegment(v);
                     });
                   },

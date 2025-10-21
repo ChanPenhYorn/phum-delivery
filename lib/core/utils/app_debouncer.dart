@@ -1,11 +1,11 @@
 import 'dart:async';
 import 'dart:ui';
 
-class AppBouncer {
+class AppDebouncer {
   final int milliseconds;
   Timer? _timer;
 
-  AppBouncer({required this.milliseconds});
+  AppDebouncer({required this.milliseconds});
 
   void run(VoidCallback action) {
     _timer?.cancel();

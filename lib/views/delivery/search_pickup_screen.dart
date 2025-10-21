@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get/get_rx/src/rx_workers/rx_workers.dart';
+import 'package:get/get_rx/src/rx_workers/utils/debouncer.dart';
 import 'package:phum_delivery/core/constants/app_string.dart';
+import 'package:phum_delivery/core/utils/app_debouncer.dart' show AppDebouncer;
 import 'package:phum_delivery/views/delivery/widgets/shimmer/seach_pickup_shimmer.dart';
 import 'package:phum_delivery/views/home/widgets/delivery_item_widget.dart';
 import '../../controllers/pickup_processing/processing_controller.dart';
@@ -9,24 +12,25 @@ import '../../r.dart';
 import '../../widgets/app_action_widget.dart';
 import '../../widgets/app_textformfield_widget.dart';
 
-class SearchPickupScreen extends StatefulWidget {
+class SearchPickupScreen extends StatelessWidget {
   const SearchPickupScreen({super.key});
 
   @override
-  State<SearchPickupScreen> createState() => _SearchPickupScreenState();
-}
-
-class _SearchPickupScreenState extends State<SearchPickupScreen> {
-  final TextEditingController searchController = TextEditingController();
-  final PickupProcessingController pickupController = Get.find();
-
-  @override
   Widget build(BuildContext context) {
+    final TextEditingController searchController = TextEditingController();
+
+    final PickupProcessingController pickupController = Get.find();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      pickupController.requestFocus(context);
+    });
+
     return Scaffold(
       appBar: AppBar(
         title: Padding(
           padding: const EdgeInsets.only(right: 16),
           child: AppTextformfieldWidget(
+            focusNode: pickupController.focusNode,
             controller: searchController,
             borderRadius: BorderRadius.circular(16),
             hintText: AppString.search.tr,
@@ -35,7 +39,11 @@ class _SearchPickupScreenState extends State<SearchPickupScreen> {
               searchController.text = "";
             },
             onChanged: (value) {
-              pickupController.searchPickup(value);
+              AppDebouncer(milliseconds: 300).run(
+                () {
+                  pickupController.searchPickup(value);
+                },
+              );
             },
             isRequried: false,
           ),
