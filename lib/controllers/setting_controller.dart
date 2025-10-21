@@ -63,14 +63,4 @@ class SettingController extends GetxController {
 
     notification.value = appStorageService.getNotification();
   }
-
-  // @override
-  // void onReady() {
-  //   super.onReady();
-  // }
-
-  // @override
-  // void onClose() {
-  //   super.onClose();
-  // }
 }
