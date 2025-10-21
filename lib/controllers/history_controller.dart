@@ -9,7 +9,6 @@ class HistoryController extends GetxController {
   HistoryController(this.historyUseCase);
 
   RxInt selectSegmentValue = 1.obs;
-  final focusNode = FocusNode();
 
   RxBool isLoadingHistory = false.obs;
 
@@ -30,10 +29,6 @@ class HistoryController extends GetxController {
 
   void selectSegment(int value) {
     selectSegmentValue.value = value;
-  }
-
-  void requestFocus(BuildContext context) {
-    FocusScope.of(context).requestFocus(focusNode);
   }
 
   void getHistoryItems(String token) async {

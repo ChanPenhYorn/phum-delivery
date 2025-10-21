@@ -31,7 +31,8 @@ class AppTextformfieldWidget extends StatelessWidget {
       this.focusNode,
       this.fillColor,
       this.maxLength,
-      this.borderRadius});
+      this.borderRadius,
+      this.autofocus});
   final TextEditingController controller;
   final void Function(String)? onChanged;
   final String? hintText;
@@ -54,6 +55,7 @@ class AppTextformfieldWidget extends StatelessWidget {
   final Color? fillColor;
   final int? maxLength;
   final BorderRadius? borderRadius;
+  final bool? autofocus;
 
   @override
   Widget build(BuildContext context) {
@@ -61,6 +63,7 @@ class AppTextformfieldWidget extends StatelessWidget {
         _getInputFormatters(type, controller);
 
     return TextFormField(
+      autofocus: autofocus ?? false,
       maxLengthEnforcement: MaxLengthEnforcement.enforced,
       focusNode: focusNode,
       maxLength: maxLength,
