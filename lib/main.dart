@@ -5,6 +5,7 @@ import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:phum_delivery/controllers/setting_controller.dart';
 import 'package:phum_delivery/core/utils/app_logger.dart';
 import 'package:phum_delivery/core/utils/app_translation.dart';
 import 'package:phum_delivery/firebase_options_dev.dart'
@@ -77,6 +78,8 @@ void main() async {
 
   // 7. Initialize GetX Controllers
   Get.put(ThemeController());
+  Get.put(SettingController());
+
   AppTranslation translations = AppTranslation();
   translations.loadTranslations();
 

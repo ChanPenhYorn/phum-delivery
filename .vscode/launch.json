@@ -21,7 +21,7 @@
                 "--flavor",
                 "staging"
             ],
-            "program": "lib/main_staging.dart"
+            "program": "lib/main.dart"
         },
         {
             "name": "prod Debug",
