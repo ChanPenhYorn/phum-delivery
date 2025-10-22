@@ -70,11 +70,11 @@ flavorizr:
   flavors:
     dev:
       app:
-        name: "Dev App"
+        name: "Delivery Dev"
       android:
-        applicationId: "com.solid.principle.dev"
+        applicationId: "com.phum.delivery.dev"
         icon: "assets/images/app_logo_dev.png"
-        packageName: "com.solid.principle.dev"
+        packageName: "com.phum.delivery.dev"
         resValues:
           variable_one:
             type: "string"
@@ -87,7 +87,7 @@ flavorizr:
           config: ".firebase/dev/android/google-services.json"
         
       ios:
-        bundleId: "com.solid.principle.dev" 
+        bundleId: "com.phum.delivery.dev" 
         icon: "assets/images/app_logo_dev.png"
         firebase:
           config: ".firebase/dev/ios/GoogleService-Info.plist"
@@ -95,11 +95,11 @@ flavorizr:
 
     staging:
       app:
-        name: "Staging App"
+        name: "Delivery Staging"
       android:
-        applicationId: "com.solid.principle.staging"
+        applicationId: "com.phum.delivery.staging"
         icon: "assets/images/app_logo_staging.png"
-        packageName: "com.solid.principle.staging"
+        packageName: "com.phum.delivery.staging"
         resValues:
           variable_one:
             type: "string"
@@ -111,7 +111,7 @@ flavorizr:
           config: ".firebase/staging/android/google-services.json"
  
       ios:
-        bundleId: "com.solid.principle.staging"
+        bundleId: "com.phum.delivery.staging"
         icon: "assets/images/app_logo_staging.png"
         firebase:
           config: ".firebase/staging/ios/GoogleService-Info.plist"
@@ -119,11 +119,11 @@ flavorizr:
         
     prod:
       app:
-        name: "Prod App"
+        name: "Delivery"
       android:
-        applicationId: "com.solid.principle"
+        applicationId: "com.phum.delivery"
         icon: "assets/images/app_logo.png"
-        packageName: "com.solid.principle"
+        packageName: "com.phum.delivery"
         resValues:
           variable_one:
             type: "string"
@@ -134,7 +134,7 @@ flavorizr:
         firebase:
           config: ".firebase/prod/android/google-services.json"
       ios:
-        bundleId: "com.solid.principle"
+        bundleId: "com.phum.delivery"
         icon: "assets/images/app_logo.png"
         firebase:
           config: ".firebase/prod/ios/GoogleService-Info.plist"
