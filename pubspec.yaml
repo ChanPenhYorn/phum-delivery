@@ -63,42 +63,78 @@ flutter:
     - assets/svg/setting/
     
 
+
+
 flavorizr:
   ide: "vscode"
   flavors:
     dev:
       app:
-        name: "Delivery Dev"
+        name: "Dev App"
       android:
-        applicationId: "com.phum.delivery.dev"
+        applicationId: "com.solid.principle.dev"
+        icon: "assets/images/app_logo_dev.png"
+        packageName: "com.solid.principle.dev"
+        resValues:
+          variable_one:
+            type: "string"
+            value: "example variable one"
+          variable_two:
+            type: "string"
+            value: "example variable two"
+
         firebase:
           config: ".firebase/dev/android/google-services.json"
+        
       ios:
-        bundleId: "com.phum.delivery.dev"
+        bundleId: "com.solid.principle.dev" 
+        icon: "assets/images/app_logo_dev.png"
         firebase:
           config: ".firebase/dev/ios/GoogleService-Info.plist"
-         
+
 
     staging:
       app:
-        name: "Delivery Staging"
+        name: "Staging App"
       android:
-        applicationId: "com.phum.delivery.staging"
+        applicationId: "com.solid.principle.staging"
+        icon: "assets/images/app_logo_staging.png"
+        packageName: "com.solid.principle.staging"
+        resValues:
+          variable_one:
+            type: "string"
+            value: "example variable one"
+          variable_two:
+            type: "string"
+            value: "example variable two"
         firebase:
           config: ".firebase/staging/android/google-services.json"
+ 
       ios:
-        bundleId: "com.phum.delivery.staging"
+        bundleId: "com.solid.principle.staging"
+        icon: "assets/images/app_logo_staging.png"
         firebase:
           config: ".firebase/staging/ios/GoogleService-Info.plist"
+
         
     prod:
       app:
-        name: "Delivery Prod"
+        name: "Prod App"
       android:
-        applicationId: "com.phum.delivery"
+        applicationId: "com.solid.principle"
+        icon: "assets/images/app_logo.png"
+        packageName: "com.solid.principle"
+        resValues:
+          variable_one:
+            type: "string"
+            value: "example variable one"
+          variable_two:
+            type: "string"
+            value: "example variable two"
         firebase:
           config: ".firebase/prod/android/google-services.json"
       ios:
-        bundleId: "com.phum.delivery"
+        bundleId: "com.solid.principle"
+        icon: "assets/images/app_logo.png"
         firebase:
           config: ".firebase/prod/ios/GoogleService-Info.plist"

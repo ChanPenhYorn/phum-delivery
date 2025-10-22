@@ -1,4 +1,4 @@
-package com.solid.phum_delivery
+package com.example.phum_delivery
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -2,5 +2,5 @@
 #include "Generated.xcconfig"
 
 ASSET_PREFIX=dev
-BUNDLE_NAME=Delivery Dev
-BUNDLE_DISPLAY_NAME=Delivery Dev
+BUNDLE_NAME=Dev App
+BUNDLE_DISPLAY_NAME=Dev App

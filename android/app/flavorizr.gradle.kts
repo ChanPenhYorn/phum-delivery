@@ -8,18 +8,24 @@ android.apply {
     productFlavors {
         create("dev") {
             dimension = "flavor-type"
-            applicationId = "com.phum.delivery.dev"
-            resValue(type = "string", name = "app_name", value = "Delivery Dev")
+            applicationId = "com.solid.principle.dev"
+            resValue(type = "string", name = "app_name", value = "Dev App")
+            resValue(type = "string", name = "variable_one", value = "example variable one")
+            resValue(type = "string", name = "variable_two", value = "example variable two")
         }
         create("staging") {
             dimension = "flavor-type"
-            applicationId = "com.phum.delivery.staging"
-            resValue(type = "string", name = "app_name", value = "Delivery Staging")
+            applicationId = "com.solid.principle.staging"
+            resValue(type = "string", name = "app_name", value = "Staging App")
+            resValue(type = "string", name = "variable_one", value = "example variable one")
+            resValue(type = "string", name = "variable_two", value = "example variable two")
         }
         create("prod") {
             dimension = "flavor-type"
-            applicationId = "com.phum.delivery"
-            resValue(type = "string", name = "app_name", value = "Delivery Prod")
+            applicationId = "com.solid.principle"
+            resValue(type = "string", name = "app_name", value = "Prod App")
+            resValue(type = "string", name = "variable_one", value = "example variable one")
+            resValue(type = "string", name = "variable_two", value = "example variable two")
         }
     }
 }

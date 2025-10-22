@@ -1,42 +1,92 @@
 import 'dart:ui';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:phum_delivery/app.dart';
-import 'package:phum_delivery/controllers/setting_controller.dart';
-import 'package:phum_delivery/core/services/app_storage_service.dart';
 import 'package:phum_delivery/core/utils/app_logger.dart';
 import 'package:phum_delivery/core/utils/app_translation.dart';
+import 'package:phum_delivery/firebase_options_dev.dart'
+    // ignore: library_prefixes
+    as DefaultFirebaseOptionsDev;
+import 'package:phum_delivery/firebase_options_staging.dart'
+    // ignore: library_prefixes
+    as DefaultFirebaseOptionsStaging;
+import 'package:phum_delivery/firebase_options.dart'
+    // ignore: library_prefixes
+    as DefaultFirebaseOptionsProd;
 import 'package:package_info_plus/package_info_plus.dart';
-
+import 'app.dart';
 import 'controllers/theme_controller.dart';
-import 'firebase_options.dart';
+import 'core/services/app_storage_service.dart';
 import 'flavors.dart';
 
-Future<void> main() async {
+void main() async {
+  // 1. Ensure Flutter is initialized
   WidgetsFlutterBinding.ensureInitialized();
-  FirebaseApp firebaseApp = await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
+
+  // 2. Set System UI (optional: status bar, orientation)
+  SystemChrome.setSystemUIOverlayStyle(
+    const SystemUiOverlayStyle(statusBarColor: Colors.transparent),
   );
-  // Pass all uncaught "fatal" errors from the framework to Crashlytics.
-  FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
+  F.appFlavor = Flavor.values.firstWhere(
+    (element) => element.name == appFlavor,
+    orElse: () => Flavor.dev,
+  );
 
-  // Pass all uncaught asynchronous errors that aren't handled by the Flutter framework to Crashlytics.
-  PlatformDispatcher.instance.onError = (error, stack) {
-    FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
-    return true;
-  };
+  Logger.log("Flavor: ${F.appFlavor}");
 
-  // Log Firebase info
-  Logger.log("🔥 Firebase initialized successfully");
-  Logger.log("App name: ${firebaseApp.name}");
-  Logger.log("Firebase options:");
-  Logger.log("  - Project ID: ${firebaseApp.options.projectId}");
-  Logger.log("  - App ID: ${firebaseApp.options.appId}");
-  Logger.log("  - API Key: ${firebaseApp.options.apiKey}");
-  Logger.log(
-      "  - Messaging Sender ID: ${firebaseApp.options.messagingSenderId}");
+  try {
+    FirebaseApp firebaseApp;
+    // 4. Initialize Firebase with flavor-specific options
+    firebaseApp = await Firebase.initializeApp(
+      options: F.appFlavor == Flavor.dev
+          ? DefaultFirebaseOptionsDev.DefaultFirebaseOptions.currentPlatform
+          : F.appFlavor == Flavor.staging
+              ? DefaultFirebaseOptionsStaging
+                  .DefaultFirebaseOptions.currentPlatform
+              : DefaultFirebaseOptionsProd
+                  .DefaultFirebaseOptions.currentPlatform,
+    );
+
+    //! Log Firebase info
+    Logger.log("🔥 Firebase initialized successfully");
+    Logger.log("App name: ${firebaseApp.name}");
+    Logger.log("Firebase options:");
+    Logger.log("  - Project ID: ${firebaseApp.options.projectId}");
+    Logger.log("  - App ID: ${firebaseApp.options.appId}");
+    Logger.log("  - API Key: ${firebaseApp.options.apiKey}");
+
+    // 5. Pass uncaught errors to Crashlytics
+    FlutterError.onError = (errorDetails) {
+      FirebaseCrashlytics.instance.recordFlutterFatalError(errorDetails);
+    };
+
+    // 6. Pass uncaught async errors to Crashlytics
+    PlatformDispatcher.instance.onError = (error, stack) {
+      FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
+      return true;
+    };
+
+    Logger.log('Firebase initialized for flavor: ${F.name}');
+  } catch (e) {
+    Logger.log('Failed to initialize Firebase');
+    // Optionally: show error screen or fallback
+  }
+
+  // 7. Initialize GetX Controllers
+  Get.put(ThemeController());
+  AppTranslation translations = AppTranslation();
+  translations.loadTranslations();
+
+  PackageInfo packageInfo = await PackageInfo.fromPlatform();
+  String bundleId = packageInfo.packageName;
+
+  Logger.log("Run on Dev Environment");
+
+  Logger.log("Dev Bundle ID: $bundleId");
+
   AppStorageService appStorageService = AppStorageService();
   await appStorageService.init();
 
@@ -48,17 +98,5 @@ Future<void> main() async {
     locale = const Locale('en', 'US');
   }
 
-  Get.put(ThemeController());
-  Get.put(SettingController());
-
-  AppTranslation translations = AppTranslation();
-  await translations.loadTranslations();
-  F.appFlavor = Flavor.dev;
-
-  PackageInfo packageInfo = await PackageInfo.fromPlatform();
-  String bundleId = packageInfo.packageName;
-
-  Logger.log("Run on Dev Environment");
-  Logger.log("Dev Bundle ID: $bundleId");
   runApp(App(translations: translations, locale: locale));
 }

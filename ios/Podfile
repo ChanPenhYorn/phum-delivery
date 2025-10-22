@@ -1,10 +1,9 @@
-# Define global platform for your project
-platform :ios, '15.5'
+# Uncomment this line to define a global platform for your project
+# platform :ios, '13.0'
 
-# Disable CocoaPods stats to reduce build latency
+# CocoaPods analytics sends network stats synchronously affecting flutter build latency.
 ENV['COCOAPODS_DISABLE_STATS'] = 'true'
 
-# Project configurations
 project 'Runner', {
   'Debug-dev' => :debug,
   'Profile-dev' => :release,
@@ -17,7 +16,6 @@ project 'Runner', {
   'Release-prod' => :release,
 }
 
-# Locate Flutter root
 def flutter_root
   generated_xcode_build_settings_path = File.expand_path(File.join('..', 'Flutter', 'Generated.xcconfig'), __FILE__)
   unless File.exist?(generated_xcode_build_settings_path)
@@ -37,14 +35,8 @@ flutter_ios_podfile_setup
 
 target 'Runner' do
   use_frameworks!
-  use_modular_headers!
 
-  # Install all Flutter-managed pods first
   flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
-
-  # Add Firebase pods after Flutter pods
-  pod 'Firebase/Analytics'
-
   target 'RunnerTests' do
     inherit! :search_paths
   end
@@ -53,9 +45,5 @@ end
 post_install do |installer|
   installer.pods_project.targets.each do |target|
     flutter_additional_ios_build_settings(target)
-    # Ensure minimum deployment target consistency
-    target.build_configurations.each do |config|
-      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '15.5'
-    end
   end
 end
