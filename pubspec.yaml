@@ -39,6 +39,9 @@ dependencies:
 
   json_annotation: ^4.9.0
   custom_sliding_segmented_control: ^1.8.5
+  firebase_auth: ^6.1.1
+  google_sign_in: ^7.2.0
+  flutter_facebook_auth: ^7.1.2
 
 
 
@@ -82,7 +85,6 @@ flavorizr:
           variable_two:
             type: "string"
             value: "example variable two"
-
         firebase:
           config: ".firebase/dev/android/google-services.json"
         
@@ -91,14 +93,12 @@ flavorizr:
         icon: "assets/images/app_logo_dev.png"
 
         variables:
-          VARIABLE_ONE:
+          CLIENT_ID:
             type: "string"
-            value: "example variable one"
-          VARIABLE_TWO:
+            value: "677667737775-42tkrkmljgd61iahbeb4kgng8tiklha6.apps.googleusercontent.com"
+          REVERSED_CLIENT_ID:
             type: "string"
-            value: "example variable two"
-
-
+            value: "com.googleusercontent.apps.677667737775-42tkrkmljgd61iahbeb4kgng8tiklha6"
         firebase:
           config: ".firebase/dev/ios/GoogleService-Info.plist"
         
@@ -126,13 +126,12 @@ flavorizr:
         icon: "assets/images/app_logo_staging.png"
 
         variables:
-          VARIABLE_ONE:
+          CLIENT_ID:
             type: "string"
-            value: "example variable one"
-          VARIABLE_TWO:
+            value: "677667737775-kaa4kduqjfki858c41i8hdaet5g55nnd.apps.googleusercontent.com"
+          REVERSED_CLIENT_ID:
             type: "string"
-            value: "example variable two"
-
+            value: "com.googleusercontent.apps.677667737775-kaa4kduqjfki858c41i8hdaet5g55nnd"
         firebase:
           config: ".firebase/staging/ios/GoogleService-Info.plist"
 
@@ -156,14 +155,12 @@ flavorizr:
       ios:
         bundleId: "com.phum.delivery"
         icon: "assets/images/app_logo.png"
-
         variables:
-          VARIABLE_ONE:
+          CLIENT_ID:
             type: "string"
-            value: "example variable one"
-          VARIABLE_TWO:
+            value: "677667737775-apthglr5for9fuo3etvfis1e68qvifq9.apps.googleusercontent.com"
+          REVERSED_CLIENT_ID:
             type: "string"
-            value: "example variable two"
-
+            value: "com.googleusercontent.apps.677667737775-apthglr5for9fuo3etvfis1e68qvifq9"
         firebase:
           config: ".firebase/prod/ios/GoogleService-Info.plist"

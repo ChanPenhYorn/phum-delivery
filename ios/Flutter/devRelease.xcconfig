@@ -4,5 +4,5 @@
 ASSET_PREFIX=dev
 BUNDLE_NAME=Delivery Dev
 BUNDLE_DISPLAY_NAME=Delivery Dev
-VARIABLE_ONE=example variable one
-VARIABLE_TWO=example variable two
+CLIENT_ID=677667737775-42tkrkmljgd61iahbeb4kgng8tiklha6.apps.googleusercontent.com
+REVERSED_CLIENT_ID=com.googleusercontent.apps.677667737775-42tkrkmljgd61iahbeb4kgng8tiklha6

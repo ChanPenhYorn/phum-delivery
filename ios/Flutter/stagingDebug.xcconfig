@@ -4,5 +4,5 @@
 ASSET_PREFIX=staging
 BUNDLE_NAME=Delivery Staging
 BUNDLE_DISPLAY_NAME=Delivery Staging
-VARIABLE_ONE=example variable one
-VARIABLE_TWO=example variable two
+CLIENT_ID=677667737775-kaa4kduqjfki858c41i8hdaet5g55nnd.apps.googleusercontent.com
+REVERSED_CLIENT_ID=com.googleusercontent.apps.677667737775-kaa4kduqjfki858c41i8hdaet5g55nnd
