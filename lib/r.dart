@@ -3,6 +3,8 @@ class AssetLocales {
   static const String km = 'assets/locales/km.json';
   static const String airCondition = 'assets/images/air_conditon.png';
   static const String folder = 'assets/images/folder.png';
+  static const String google = 'assets/images/google.png';
+  static const String facebook = 'assets/images/facebook.png';
 }
 
 class AssetSvg {

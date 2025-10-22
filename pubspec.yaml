@@ -99,6 +99,9 @@ flavorizr:
           REVERSED_CLIENT_ID:
             type: "string"
             value: "com.googleusercontent.apps.677667737775-42tkrkmljgd61iahbeb4kgng8tiklha6"
+          FB_APP_ID:
+            type: "string"
+            value: "677667737775"
         firebase:
           config: ".firebase/dev/ios/GoogleService-Info.plist"
         
@@ -132,6 +135,9 @@ flavorizr:
           REVERSED_CLIENT_ID:
             type: "string"
             value: "com.googleusercontent.apps.677667737775-kaa4kduqjfki858c41i8hdaet5g55nnd"
+          FB_APP_ID:
+            type: "string"
+            value: "677667737775"
         firebase:
           config: ".firebase/staging/ios/GoogleService-Info.plist"
 
@@ -162,5 +168,8 @@ flavorizr:
           REVERSED_CLIENT_ID:
             type: "string"
             value: "com.googleusercontent.apps.677667737775-apthglr5for9fuo3etvfis1e68qvifq9"
+          FB_APP_ID:
+            type: "string"
+            value: "677667737775"
         firebase:
           config: ".firebase/prod/ios/GoogleService-Info.plist"

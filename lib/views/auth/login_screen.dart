@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:phum_delivery/controllers/auth/auth_controller.dart';
 import 'package:phum_delivery/core/constants/app_string.dart';
+import 'package:phum_delivery/core/extension/space_extension.dart';
 import 'package:phum_delivery/core/utils/app_colors.dart';
 import 'package:phum_delivery/core/utils/app_font.dart';
 import 'package:phum_delivery/core/utils/app_logger.dart';
 import 'package:phum_delivery/core/utils/app_textformfiled_formatter.dart';
 import 'package:phum_delivery/core/utils/enum/app_textformfield_enum.dart';
+import 'package:phum_delivery/r.dart';
 import 'package:phum_delivery/routes/app_route.dart';
 import 'package:phum_delivery/widgets/app_button_widget.dart';
 
@@ -90,6 +92,34 @@ class LoginScreen extends StatelessWidget {
                   Logger.log("Login button pressed");
                 },
               ),
+              SizedBox(height: 16),
+              Center(
+                  child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  IconButton(
+                    icon: Image.asset(
+                      AssetLocales.google,
+                      width: 30,
+                      height: 30,
+                    ),
+                    onPressed: () {
+                      authController.signInWithGoogle();
+                    },
+                  ),
+                  16.width,
+                  IconButton(
+                    icon: Image.asset(
+                      AssetLocales.facebook,
+                      width: 30,
+                      height: 30,
+                    ),
+                    onPressed: () {
+                      authController.signInWithFacebook();
+                    },
+                  ),
+                ],
+              )),
               Center(
                 child: TextButton(
                   onPressed: () {
