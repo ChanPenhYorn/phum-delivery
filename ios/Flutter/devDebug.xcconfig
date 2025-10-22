@@ -4,3 +4,5 @@
 ASSET_PREFIX=dev
 BUNDLE_NAME=Delivery Dev
 BUNDLE_DISPLAY_NAME=Delivery Dev
+VARIABLE_ONE=example variable one
+VARIABLE_TWO=example variable two

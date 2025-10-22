@@ -89,8 +89,19 @@ flavorizr:
       ios:
         bundleId: "com.phum.delivery.dev" 
         icon: "assets/images/app_logo_dev.png"
+
+        variables:
+          VARIABLE_ONE:
+            type: "string"
+            value: "example variable one"
+          VARIABLE_TWO:
+            type: "string"
+            value: "example variable two"
+
+
         firebase:
           config: ".firebase/dev/ios/GoogleService-Info.plist"
+        
 
 
     staging:
@@ -113,6 +124,15 @@ flavorizr:
       ios:
         bundleId: "com.phum.delivery.staging"
         icon: "assets/images/app_logo_staging.png"
+
+        variables:
+          VARIABLE_ONE:
+            type: "string"
+            value: "example variable one"
+          VARIABLE_TWO:
+            type: "string"
+            value: "example variable two"
+
         firebase:
           config: ".firebase/staging/ios/GoogleService-Info.plist"
 
@@ -136,5 +156,14 @@ flavorizr:
       ios:
         bundleId: "com.phum.delivery"
         icon: "assets/images/app_logo.png"
+
+        variables:
+          VARIABLE_ONE:
+            type: "string"
+            value: "example variable one"
+          VARIABLE_TWO:
+            type: "string"
+            value: "example variable two"
+
         firebase:
           config: ".firebase/prod/ios/GoogleService-Info.plist"

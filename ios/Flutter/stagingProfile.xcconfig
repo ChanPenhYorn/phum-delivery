@@ -4,3 +4,5 @@
 ASSET_PREFIX=staging
 BUNDLE_NAME=Delivery Staging
 BUNDLE_DISPLAY_NAME=Delivery Staging
+VARIABLE_ONE=example variable one
+VARIABLE_TWO=example variable two
