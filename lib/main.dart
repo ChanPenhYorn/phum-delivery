@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:ui';
 
 import 'package:firebase_core/firebase_core.dart';
@@ -5,6 +6,7 @@ import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:phum_delivery/controllers/setting_controller.dart';
 import 'package:phum_delivery/core/utils/app_logger.dart';
 import 'package:phum_delivery/core/utils/app_translation.dart';
@@ -51,6 +53,10 @@ void main() async {
                   .DefaultFirebaseOptions.currentPlatform,
     );
 
+    // await GoogleSignIn.instance.initialize(
+    //     clientId:
+    //         "677667737775-8tltf5h299sros5moi98ubneof3jon3r.apps.googleusercontent.com");
+
     //! Log Firebase info
     Logger.log("🔥 Firebase initialized successfully");
     Logger.log("App name: ${firebaseApp.name}");
@@ -58,6 +64,10 @@ void main() async {
     Logger.log("  - Project ID: ${firebaseApp.options.projectId}");
     Logger.log("  - App ID: ${firebaseApp.options.appId}");
     Logger.log("  - API Key: ${firebaseApp.options.apiKey}");
+
+    final info = await PackageInfo.fromPlatform();
+    Logger.log('Package: ${info.packageName}');
+    Logger.log('Version: ${info.version}');
 
     // 5. Pass uncaught errors to Crashlytics
     FlutterError.onError = (errorDetails) {

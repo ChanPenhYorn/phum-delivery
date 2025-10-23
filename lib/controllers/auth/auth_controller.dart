@@ -10,8 +10,6 @@ import 'package:phum_delivery/domain/usecases/auth_usecase.dart';
 import 'package:phum_delivery/domain/entities/user_entity.dart';
 import 'package:phum_delivery/routes/app_route.dart';
 
-import '../../flavors.dart';
-
 class AuthController extends GetxController {
   final AuthUseCase loginUseCase;
   AuthController(this.loginUseCase);
@@ -98,7 +96,6 @@ class AuthController extends GetxController {
   void onInit() {
     super.onInit();
     _initializeSignIn();
-
     // Listen to Firebase auth changes
     _auth.authStateChanges().listen(_handleAuthChange);
     // Initialise with current user (if any)
@@ -112,22 +109,23 @@ class AuthController extends GetxController {
   }
 
   Future<void> _initializeSignIn() async {
-    String serverClientId;
+    // String serverClientId;
 
-    if (F.appFlavor == Flavor.dev) {
-      serverClientId =
-          '677667737775-8tltf5h299sros5moi98ubneof3jon3r.apps.googleusercontent.com';
-    } else if (F.appFlavor == Flavor.staging) {
-      serverClientId =
-          '677667737775-bc73uf4hkn2b580qhcorfffk235uvk0t.apps.googleusercontent.com';
-    } else {
-      serverClientId =
-          '677667737775-kh26ij3r554hk9at5gmtb73r0fpprtoh.apps.googleusercontent.com';
-    }
+    // if (F.appFlavor == Flavor.dev) {
+    //   serverClientId =
+    //       '677667737775-da7ijfer2vpc37koaf2oma1hs6forb2k.apps.googleusercontent.com';
+    // } else if (F.appFlavor == Flavor.staging) {
+    //   serverClientId =
+    //       '677667737775-bc73uf4hkn2b580qhcorfffk235uvk0t.apps.googleusercontent.com';
+    // } else {
+    //   serverClientId =
+    //       '677667737775-kh26ij3r554hk9at5gmtb73r0fpprtoh.apps.googleusercontent.com';
+    // }
 
     try {
       await _google.initialize(
-        serverClientId: serverClientId,
+        serverClientId:
+            "677667737775-8tltf5h299sros5moi98ubneof3jon3r.apps.googleusercontent.com",
       );
 
       await _google.attemptLightweightAuthentication();
@@ -195,7 +193,7 @@ class AuthController extends GetxController {
         default:
           msg = e.message ?? 'Authentication error';
       }
-      Logger.log('signInWithCredential error: $msg');
+      Logger.log('signInWithCredential error $msg');
     } finally {
       isLoading(false);
     }

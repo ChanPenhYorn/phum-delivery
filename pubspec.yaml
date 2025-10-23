@@ -86,10 +86,6 @@ flavorizr:
             type: "string"
             value: "9174ded99feec83cdd0167fd8d554294"
 
-          CLIENT_ID:
-            type: "string"
-            value: "677667737775-8tltf5h299sros5moi98ubneof3jon3r.apps.googleusercontent.com"
-
         firebase:
           config: ".firebase/dev/android/google-services.json"
 
@@ -129,11 +125,6 @@ flavorizr:
             type: "string"
             value: "9174ded99feec83cdd0167fd8d554294"
 
-          
-          CLIENT_ID:
-            type: "string"
-            value: "677667737775-bc73uf4hkn2b580qhcorfffk235uvk0t.apps.googleusercontent.com"
-
         firebase:
           config: ".firebase/staging/android/google-services.json"
  
@@ -172,9 +163,6 @@ flavorizr:
             type: "string"
             value: "9174ded99feec83cdd0167fd8d554294"
 
-          CLIENT_ID:
-            type: "string"
-            value: "677667737775-kh26ij3r554hk9at5gmtb73r0fpprtoh.apps.googleusercontent.com"
 
         
         firebase:

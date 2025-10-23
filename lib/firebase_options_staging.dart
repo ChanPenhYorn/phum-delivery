@@ -63,6 +63,9 @@ class DefaultFirebaseOptions {
     messagingSenderId: '677667737775',
     projectId: 'phum-delivery-26b4c',
     storageBucket: 'phum-delivery-26b4c.firebasestorage.app',
+    androidClientId: '677667737775-225appjhaq5h8sp2sa5hfgln20ch1m3d.apps.googleusercontent.com',
+    iosClientId: '677667737775-kaa4kduqjfki858c41i8hdaet5g55nnd.apps.googleusercontent.com',
     iosBundleId: 'com.phum.delivery.staging',
   );
+
 }

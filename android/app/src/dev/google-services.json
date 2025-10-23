@@ -1,54 +1,9 @@
 {
   "project_info": {
     "project_number": "677667737775",
-    "project_id": "phum-delivery-26b4c",
-    "storage_bucket": "phum-delivery-26b4c.firebasestorage.app"
+    "project_id": "phum-delivery-26b4c"
   },
   "client": [
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:677667737775:android:0eacb853ac4e7c2152445a",
-        "android_client_info": {
-          "package_name": "com.phum.delivery"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "677667737775-kh26ij3r554hk9at5gmtb73r0fpprtoh.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.phum.delivery",
-            "certificate_hash": "e1e53f841462a2824127d716c7909f24df02f1b5"
-          }
-        },
-        {
-          "client_id": "677667737775-8tltf5h299sros5moi98ubneof3jon3r.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyA7qYsycK7cPf7WGAP4PrKYD8WfimxjA8g"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "677667737775-8tltf5h299sros5moi98ubneof3jon3r.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "677667737775-42tkrkmljgd61iahbeb4kgng8tiklha6.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.phum.delivery.dev"
-              }
-            }
-          ]
-        }
-      }
-    },
     {
       "client_info": {
         "mobilesdk_app_id": "1:677667737775:android:d2854f56c8b62d6152445a",
@@ -64,78 +19,11 @@
             "package_name": "com.phum.delivery.dev",
             "certificate_hash": "e1e53f841462a2824127d716c7909f24df02f1b5"
           }
-        },
-        {
-          "client_id": "677667737775-8tltf5h299sros5moi98ubneof3jon3r.apps.googleusercontent.com",
-          "client_type": 3
         }
       ],
       "api_key": [
-        {
-          "current_key": "AIzaSyA7qYsycK7cPf7WGAP4PrKYD8WfimxjA8g"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "677667737775-8tltf5h299sros5moi98ubneof3jon3r.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "677667737775-42tkrkmljgd61iahbeb4kgng8tiklha6.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.phum.delivery.dev"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:677667737775:android:92949f1524c957a852445a",
-        "android_client_info": {
-          "package_name": "com.phum.delivery.staging"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "677667737775-bc73uf4hkn2b580qhcorfffk235uvk0t.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.phum.delivery.staging",
-            "certificate_hash": "e1e53f841462a2824127d716c7909f24df02f1b5"
-          }
-        },
-        {
-          "client_id": "677667737775-8tltf5h299sros5moi98ubneof3jon3r.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyA7qYsycK7cPf7WGAP4PrKYD8WfimxjA8g"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "677667737775-8tltf5h299sros5moi98ubneof3jon3r.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "677667737775-42tkrkmljgd61iahbeb4kgng8tiklha6.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.phum.delivery.dev"
-              }
-            }
-          ]
-        }
-      }
+        { "current_key": "AIzaSyA7qYsycK7cPf7WGAP4PrKYD8WfimxjA8g" }
+      ]
     }
   ],
   "configuration_version": "1"
