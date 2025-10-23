@@ -10,6 +10,8 @@ import 'package:phum_delivery/domain/usecases/auth_usecase.dart';
 import 'package:phum_delivery/domain/entities/user_entity.dart';
 import 'package:phum_delivery/routes/app_route.dart';
 
+import '../../flavors.dart';
+
 class AuthController extends GetxController {
   final AuthUseCase loginUseCase;
   AuthController(this.loginUseCase);
@@ -95,6 +97,8 @@ class AuthController extends GetxController {
   @override
   void onInit() {
     super.onInit();
+    _initializeSignIn();
+
     // Listen to Firebase auth changes
     _auth.authStateChanges().listen(_handleAuthChange);
     // Initialise with current user (if any)
@@ -105,6 +109,32 @@ class AuthController extends GetxController {
     currentUser.value = firebaseUser == null
         ? null
         : NewUserModel.fromFirebaseUser(firebaseUser);
+  }
+
+  Future<void> _initializeSignIn() async {
+    String serverClientId;
+
+    if (F.appFlavor == Flavor.dev) {
+      serverClientId =
+          '677667737775-8tltf5h299sros5moi98ubneof3jon3r.apps.googleusercontent.com';
+    } else if (F.appFlavor == Flavor.staging) {
+      serverClientId =
+          '677667737775-bc73uf4hkn2b580qhcorfffk235uvk0t.apps.googleusercontent.com';
+    } else {
+      serverClientId =
+          '677667737775-kh26ij3r554hk9at5gmtb73r0fpprtoh.apps.googleusercontent.com';
+    }
+
+    try {
+      await _google.initialize(
+        serverClientId: serverClientId,
+      );
+
+      await _google.attemptLightweightAuthentication();
+      Logger.log('Google Sign-In initialized successfully');
+    } catch (error) {
+      Logger.log('Google Sign-In init failed: $error');
+    }
   }
 
   // ── Generic credential creator ───────────────────────
@@ -165,7 +195,7 @@ class AuthController extends GetxController {
         default:
           msg = e.message ?? 'Authentication error';
       }
-      Get.snackbar('Error', msg, snackPosition: SnackPosition.BOTTOM);
+      Logger.log('signInWithCredential error: $msg');
     } finally {
       isLoading(false);
     }
@@ -174,8 +204,7 @@ class AuthController extends GetxController {
   // ── Provider-specific wrappers ───────────────────────
   Future<void> signInWithGoogle() async {
     try {
-      final googleUser = await _google.authenticate();
-      if (googleUser == null) return; // cancelled
+      final googleUser = await _google.authenticate(); // cancelled
 
       final googleAuth = googleUser.authentication;
       final cred = _credentialFromProvider(
@@ -183,8 +212,10 @@ class AuthController extends GetxController {
         googleAuth.idToken,
       );
       await _signInWithCredential(cred);
+
+      Logger.log('signInWithGoogle success');
     } catch (e) {
-      Get.snackbar('Google Error', e.toString());
+      Logger.log('signInWithGoogle error: $e');
     }
   }
 
@@ -198,7 +229,7 @@ class AuthController extends GetxController {
       final cred = _credentialFromProvider('facebook.com', accessToken);
       await _signInWithCredential(cred);
     } catch (e) {
-      Get.snackbar('Facebook Error', e.toString());
+      Logger.log('signInWithFacebook error: $e');
     }
   }
 
@@ -218,6 +249,11 @@ class AuthController extends GetxController {
     await _google.signOut();
     await _fb.logOut();
     await _auth.signOut();
+
+    currentUser.value = null;
+
+    Logger.log('signOut success');
+
     // currentUser will become null automatically
   }
 

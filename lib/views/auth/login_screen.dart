@@ -120,6 +120,17 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ],
               )),
+              16.height,
+              AppButtonWidget(
+                borderRadius: 30,
+                isExpanded: true,
+                label: AppString.loggingOut.tr,
+                onPressed: () {
+                  authController.signOut();
+
+                  Logger.log("Logging out button pressed");
+                },
+              ),
               Center(
                 child: TextButton(
                   onPressed: () {

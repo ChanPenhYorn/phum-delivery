@@ -45,9 +45,6 @@
     <true/>
     <key>UIApplicationSupportsIndirectInputEvents</key>
     <true/>
-
-
-
     <!-- ios/Runner/Info.plist -->
     <key>CFBundleURLTypes</key>
     <array>
@@ -59,22 +56,19 @@
           <string>$(REVERSED_CLIENT_ID)</string>
         </array>
       </dict>
-    </array>
-    <array>
       <dict>
+        <key>CFBundleTypeRole</key>
+        <string>Editor</string>
         <key>CFBundleURLSchemes</key>
         <array>
           <string>fb$(FB_APP_ID)</string>
         </array>
       </dict>
     </array>
-
     <key>FacebookAppID</key>
     <string>$(FB_APP_ID)</string>
-
     <key>FacebookClientToken</key>
-    <string>YOUR_CLIENT_TOKEN</string>
-
+    <string>YOUR_ACTUAL_CLIENT_TOKEN_HERE</string>
     <key>LSApplicationQueriesSchemes</key>
     <array>
       <string>fbapi</string>
